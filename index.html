@@ -198,13 +198,144 @@ footer { padding: 50px 0 40px; border-top: 1px solid var(--border); background: 
 .footer-links a:hover { color: var(--green); }
 .footer-bottom { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-mute); text-align: center; }
 
+/* ========================================
+   MOBILE / TABLET RESPONSIVE STYLES
+   Breakpoints:
+     - 880px: tablet (stacks columns)
+     - 640px: phone (further reductions)
+   Desktop above 880px stays unchanged.
+======================================== */
+
 @media (max-width: 880px) {
-  .hero-inner, .engines-grid, .dual, .dual.reverse, .benefits-grid, .numbers-block { grid-template-columns: 1fr; gap: 20px; }
+  /* Container padding tighter */
+  .container, .nav-inner { padding-left: 20px; padding-right: 20px; }
+
+  /* Stack all 2-column grids vertically */
+  .hero-inner, .engines-grid, .dual, .dual.reverse, .benefits-grid, .numbers-block { grid-template-columns: 1fr; gap: 28px; }
   .dual.reverse .dual-img { order: 0; }
+
+  /* Nav: hide links, keep brand + CTA */
   .nav-links a:not(.btn-cta) { display: none; }
-  .hero h1 { font-size: 40px; }
-  .section-header h2 { font-size: 30px; }
-  .compare-table th, .compare-table td { padding: 10px 6px; font-size: 12px; }
+  .nav-brand-text { font-size: 14px; letter-spacing: 1px; }
+  .nav-brand svg { width: 32px; height: 36px; }
+
+  /* Hero typography downscale */
+  .hero { padding: 50px 0 60px; }
+  .hero h1 { font-size: 38px; letter-spacing: -1.2px; }
+  .hero .lead { font-size: 18px; }
+  .hero .lead-2 { font-size: 15px; }
+  .hero-shield { width: 80px; height: 92px; margin-bottom: 20px; }
+  .hero-tagline .big, .hero-tagline div[style*="font-size:28px"] { font-size: 20px !important; }
+  .hero-tagline div[style*="white-space:nowrap"] { white-space: normal !important; font-size: 22px !important; }
+  .hero-tag { font-size: 11px; letter-spacing: 2px; padding: 6px 12px; }
+  .hero-proof { gap: 18px; }
+  .hero-proof-item .num { font-size: 22px; }
+
+  /* CTA buttons stack and stretch */
+  .hero-cta-row { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-cta-row .btn-cta { text-align: center; }
+  .btn-cta-big { padding: 14px 22px; font-size: 15px; }
+
+  /* Trust strip wrap */
+  .trust-strip { font-size: 10px; gap: 10px; }
+  .trust-strip .divider { display: none; }
+
+  /* Sections: tighter padding */
+  section { padding: 50px 0; }
+  .section-header { margin-bottom: 30px; }
+  .section-header h2 { font-size: 28px; line-height: 1.15; }
+  .section-header .subtitle { font-size: 16px; }
+
+  /* Prose readability */
+  .prose { font-size: 15px; }
+  .prose p { margin-bottom: 14px; }
+  .prose p.lead { font-size: 16px; }
+
+  /* Dual-text headings */
+  .dual-text h3 { font-size: 24px; }
+  .dual-text { padding: 0 4px; }
+
+  /* Engines section copy */
+  .engine-card { padding: 14px 16px; }
+  .engine-name { font-size: 14px; }
+  .engine-info .name, .engine-info .sub { font-size: 12px; }
+
+  /* Numbers cards */
+  .num-card .big { font-size: 36px; }
+  .num-card .lbl { font-size: 12px; }
+  .num-card .sub { font-size: 10px; }
+
+  /* Benefit cards */
+  .benefits-grid { gap: 14px; }
+  .benefit-card { padding: 22px 20px; }
+  .benefit-card h3 { font-size: 17px; }
+  .benefit-card p { font-size: 13px; }
+
+  /* Platform strip */
+  div[style*="Also blocks ads on"] + * { font-size: 11px; }
+
+  /* Comparison table — horizontal scroll on small screens */
+  #compare .container { overflow-x: auto; }
+  .compare-table { min-width: 560px; }
+  .compare-table th, .compare-table td { padding: 10px 8px; font-size: 12px; }
+  .compare-table th { font-size: 10px; padding-top: 16px; padding-bottom: 16px; }
+
+  /* FAQ */
+  .faq-item { padding: 18px 20px; }
+  .faq-item h4 { font-size: 16px; }
+  .faq-item p { font-size: 14px; }
+
+  /* Testimonials carousel — already responsive to 1-card via JS */
+  .testimonial-card { padding: 24px 22px; }
+  .testimonial-quote { font-size: 14px; }
+  .testimonial-author { gap: 10px; padding-top: 14px; }
+  .testimonial-name { font-size: 13px; }
+  .testimonial-meta { font-size: 11px; }
+
+  /* CTA strip mid-page */
+  .cta-strip { padding: 24px 22px; flex-direction: column; align-items: stretch; text-align: center; gap: 16px; }
+  .cta-strip .btn-cta { width: 100%; }
+
+  /* Final CTA section */
+  .cta-section { padding: 60px 0; }
+  .cta-section h2 { font-size: 32px; }
+  .cta-section p { font-size: 15px; }
+  .cta-section svg { width: 80px; height: 92px; margin-bottom: 20px; }
+  .cta-section a[style*="font-size:19px"] { font-size: 16px !important; padding: 16px 32px !important; }
+
+  /* Footer stack */
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .footer-links { gap: 16px 22px; flex-wrap: wrap; }
+
+  /* Sticky bottom bar */
+  #sticky-cta { padding: 10px 14px; }
+  .sticky-name { font-size: 12px; letter-spacing: 0.5px; }
+  .sticky-tag { display: none; }
+  .sticky-close { display: none; }
+  #sticky-cta .btn-cta { padding: 10px 18px !important; font-size: 13px !important; }
+
+  /* Popup section secure-me-now lines */
+  #popup div[style*="font-size:24px"] { font-size: 18px !important; }
+  #popup div[style*="font-size:24px"] > div[style*="display:flex"] { gap: 12px !important; margin-bottom: 14px !important; }
+  #popup svg[width="54"] { width: 44px !important; height: 24px !important; }
+
+  /* YouTube section heading with logo */
+  #youtube h3 svg { width: 44px !important; height: 32px !important; }
+}
+
+@media (max-width: 640px) {
+  /* Phone-specific further reductions */
+  .container, .nav-inner { padding-left: 16px; padding-right: 16px; }
+  .hero { padding: 40px 0 50px; }
+  .hero h1 { font-size: 32px; }
+  .hero .lead { font-size: 16px; }
+  .hero-shield { width: 64px; height: 74px; }
+  .hero-tagline div[style*="white-space:nowrap"] { font-size: 18px !important; }
+  .section-header h2 { font-size: 24px; }
+  .num-card .big { font-size: 30px; }
+  .cta-section h2 { font-size: 26px; }
+  .hero-proof { flex-direction: column; gap: 14px; align-items: flex-start; }
+  .hero-proof-item .num { font-size: 24px; }
 }
 </style>
 </head>
