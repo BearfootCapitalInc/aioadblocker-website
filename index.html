@@ -337,6 +337,43 @@ footer { padding: 50px 0 40px; border-top: 1px solid var(--border); background: 
   .hero-proof { flex-direction: column; gap: 14px; align-items: flex-start; }
   .hero-proof-item .num { font-size: 24px; }
 }
+
+/* =====================================
+   CWS REDIRECT OVERLAY
+===================================== */
+#cws-overlay { position: fixed; inset: 0; background: rgba(10,24,40,0.96); backdrop-filter: blur(12px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 24px; opacity: 0; transition: opacity 0.3s ease; }
+#cws-overlay.show { display: flex; opacity: 1; }
+.cws-card { max-width: 580px; width: 100%; background: linear-gradient(180deg, #14304a 0%, #0a1828 100%); border: 1px solid rgba(125,255,212,0.25); border-radius: 18px; padding: 44px 40px 36px; text-align: center; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 80px rgba(61,220,132,0.15); animation: cws-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes cws-pop { 0% { transform: scale(0.85); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.cws-shield { width: 72px; height: 84px; margin: 0 auto 18px; filter: drop-shadow(0 8px 24px rgba(74,139,223,0.5)); }
+.cws-tag { display: inline-block; padding: 5px 14px; background: rgba(61,220,132,0.12); border: 1px solid var(--green); color: var(--green); font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 3px; margin-bottom: 18px; }
+.cws-title { font-size: 30px; font-weight: 800; color: white; line-height: 1.15; letter-spacing: -0.6px; margin-bottom: 12px; }
+.cws-title .green { color: var(--green); }
+.cws-sub { font-size: 16px; color: var(--text-mute); line-height: 1.55; margin-bottom: 28px; }
+.cws-instruction { background: rgba(26,52,80,0.5); border: 1px solid rgba(125,255,212,0.15); border-radius: 12px; padding: 22px 18px; margin-bottom: 22px; display: flex; align-items: center; gap: 16px; position: relative; }
+.cws-arrow-bounce { color: var(--green); font-size: 26px; font-weight: 800; animation: cws-bounce 1.2s ease-in-out infinite; flex-shrink: 0; }
+@keyframes cws-bounce { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+.cws-fake-btn { background: #1a73e8; color: white; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 14px; font-family: 'Segoe UI', sans-serif; box-shadow: 0 4px 14px rgba(26,115,232,0.4); position: relative; }
+.cws-fake-btn::before { content: ""; position: absolute; inset: -3px; border: 2px dashed var(--green); border-radius: 7px; animation: cws-pulse-ring 1.4s ease-in-out infinite; }
+@keyframes cws-pulse-ring { 0%,100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; } }
+.cws-instruction-text { text-align: left; flex: 1; }
+.cws-instruction-text strong { color: white; font-size: 15px; display: block; margin-bottom: 4px; }
+.cws-instruction-text span { color: var(--text-mute); font-size: 13px; }
+.cws-countdown { font-family: 'Courier New', monospace; font-size: 13px; color: var(--text-mute); letter-spacing: 2px; margin-bottom: 8px; }
+.cws-countdown strong { color: var(--green); font-size: 17px; }
+.cws-cancel { display: inline-block; color: var(--text-mute); font-size: 12px; text-decoration: none; padding: 6px 10px; cursor: pointer; }
+.cws-cancel:hover { color: white; }
+.cws-progress-track { height: 4px; background: rgba(125,255,212,0.15); border-radius: 2px; overflow: hidden; margin-bottom: 16px; }
+.cws-progress-bar { height: 100%; background: var(--green); width: 0%; transition: width linear; box-shadow: 0 0 10px rgba(61,220,132,0.5); }
+@media (max-width: 640px) {
+  .cws-card { padding: 32px 22px 26px; }
+  .cws-title { font-size: 24px; }
+  .cws-sub { font-size: 14px; }
+  .cws-instruction { flex-direction: column; padding: 18px 14px; text-align: center; }
+  .cws-instruction-text { text-align: center; }
+  .cws-arrow-bounce { transform: rotate(90deg); }
+  @keyframes cws-bounce { 0%,100% { transform: rotate(90deg) translateX(0); } 50% { transform: rotate(90deg) translateX(6px); } }
+}
 </style>
 </head>
 <body>
@@ -895,6 +932,26 @@ footer { padding: 50px 0 40px; border-top: 1px solid var(--border); background: 
   </div>
 </div>
 
+<div id="cws-overlay" role="dialog" aria-modal="true" aria-labelledby="cws-title">
+  <div class="cws-card">
+    <svg class="cws-shield" viewBox="0 0 100 116"><path d="M 50,4 L 94,20 Q 94,76 50,112 Q 6,76 6,20 Z" fill="#1E3A6B"/><path d="M 50,14 L 82,26 Q 82,68 50,98 Q 18,68 18,26 Z" fill="#2D5AA0"/><path d="M 50,24 L 72,32 Q 72,60 50,82 Q 28,60 28,32 Z" fill="#4A8BDF"/><circle cx="50" cy="49" r="11" fill="none" stroke="#FFFFFF" stroke-width="3"/><line x1="42" y1="41" x2="58" y2="57" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg>
+    <div class="cws-tag">[ ALMOST THERE ]</div>
+    <h2 id="cws-title" class="cws-title">One more click and you're <span class="green">ad-free.</span></h2>
+    <p class="cws-sub">We're sending you to the Chrome Web Store. On the next page, look for this button:</p>
+    <div class="cws-instruction">
+      <div class="cws-fake-btn">Add to Chrome</div>
+      <div class="cws-arrow-bounce">←</div>
+      <div class="cws-instruction-text">
+        <strong>Click "Add to Chrome"</strong>
+        <span>Then confirm "Add extension" in the popup. That's it.</span>
+      </div>
+    </div>
+    <div class="cws-progress-track"><div class="cws-progress-bar" id="cws-progress-bar"></div></div>
+    <div class="cws-countdown">Redirecting in <strong id="cws-count">5</strong>…</div>
+    <a class="cws-cancel" id="cws-cancel">cancel</a>
+  </div>
+</div>
+
 <script>
 (function(){
   var bar = document.getElementById('sticky-cta');
@@ -912,6 +969,68 @@ footer { padding: 50px 0 40px; border-top: 1px solid var(--border); background: 
     bar.classList.remove('show');
   });
   update();
+})();
+
+// CWS redirect overlay
+(function(){
+  var CWS_URL = 'https://chromewebstore.google.com/';
+  var REDIRECT_DELAY = 5; // seconds
+  var overlay = document.getElementById('cws-overlay');
+  var countEl = document.getElementById('cws-count');
+  var barEl = document.getElementById('cws-progress-bar');
+  var cancelEl = document.getElementById('cws-cancel');
+  var timer = null;
+  var startTime = 0;
+  var rafId = null;
+
+  function show(){
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    startTime = Date.now();
+    countEl.textContent = REDIRECT_DELAY;
+    barEl.style.transition = 'none';
+    barEl.style.width = '0%';
+    // Force reflow then animate
+    void barEl.offsetWidth;
+    barEl.style.transition = 'width ' + REDIRECT_DELAY + 's linear';
+    barEl.style.width = '100%';
+    tick();
+    timer = setTimeout(redirect, REDIRECT_DELAY * 1000);
+  }
+
+  function tick(){
+    var elapsed = (Date.now() - startTime) / 1000;
+    var remain = Math.max(0, REDIRECT_DELAY - elapsed);
+    countEl.textContent = Math.ceil(remain);
+    if (remain > 0) rafId = requestAnimationFrame(tick);
+  }
+
+  function hide(){
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+    if (timer) { clearTimeout(timer); timer = null; }
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  function redirect(){
+    window.location.href = CWS_URL;
+  }
+
+  cancelEl.addEventListener('click', hide);
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) hide();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.classList.contains('show')) hide();
+  });
+
+  // Intercept all CTA clicks
+  document.querySelectorAll('a.btn-cta').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      show();
+    });
+  });
 })();
 
 // Testimonial carousel
