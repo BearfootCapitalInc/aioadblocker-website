@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif; }
+body { width: 500px; height: 430px; background: #fff; color: #1a1a1a; overflow: hidden; position: relative; }
+
+.site-header { background: #c41e3a; color: white; padding: 7px 12px; display: flex; align-items: center; justify-content: space-between; }
+.site-logo { font-family: Georgia, serif; font-size: 18px; font-weight: 900; letter-spacing: -1px; }
+.site-nav { background: #1a1a1a; color: white; padding: 5px 12px; display: flex; gap: 10px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; }
+
+.article-body { padding: 16px 22px; }
+.headline { font-family: Georgia, serif; font-size: 20px; font-weight: 800; color: #1a1a1a; line-height: 1.18; margin-bottom: 6px; letter-spacing: -0.3px; }
+.byline { font-size: 11px; color: #888; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #e8e8e8; }
+.article-image { width: 100%; height: 120px; background: linear-gradient(135deg, #4a7ba8, #2d5aa0); margin-bottom: 12px; border-radius: 3px; position: relative; }
+.article-image::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 40% 50%, rgba(255,200,150,0.4) 0%, transparent 50%); border-radius: 3px; }
+.article-para { font-size: 12px; color: #2c3e50; line-height: 1.6; margin-bottom: 10px; }
+.article-para:first-letter { font-size: 26px; font-weight: 700; color: #c41e3a; float: left; line-height: 1; padding: 3px 5px 0 0; font-family: Georgia, serif; }
+.no-drop-cap:first-letter { font-size: inherit; font-weight: inherit; color: inherit; float: none; padding: 0; }
+
+.aio-corner { position: absolute; top: 38px; right: 10px; background: rgba(61,220,132,0.15); border: 1px solid #3ddc84; color: #3ddc84; padding: 3px 8px; font-family: 'Courier New', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 5px; border-radius: 12px; z-index: 5; }
+.aio-corner svg { width: 10px; height: 12px; }
+</style></head><body>
+<div class="site-header">
+  <div class="site-logo">DailyNews™</div>
+  <div style="font-size:9px">LOGIN</div>
+</div>
+<div class="site-nav"><span>HOME</span><span>NEWS</span><span>POLITICS</span><span>SPORT</span><span>HEALTH</span><span>TECH</span></div>
+<div class="aio-corner">
+  <svg viewBox="0 0 100 116"><path d="M 50,4 L 94,20 Q 94,76 50,112 Q 6,76 6,20 Z" fill="#1E3A6B"/><path d="M 50,14 L 82,26 Q 82,68 50,98 Q 18,68 18,26 Z" fill="#2D5AA0"/><path d="M 50,24 L 72,32 Q 72,60 50,82 Q 28,60 28,32 Z" fill="#4A8BDF"/><circle cx="50" cy="49" r="11" fill="none" stroke="#FFFFFF" stroke-width="3"/><line x1="42" y1="41" x2="58" y2="57" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg>
+  47 BLOCKED
+</div>
+<div class="article-body">
+  <div class="headline">Breaking: Major announcement shocks the industry</div>
+  <div class="byline">By Reporter · 3 hours ago · 6 min read</div>
+  <div class="article-image"></div>
+  <div class="article-para">In a surprise move that has analysts scrambling to update their forecasts, the announcement came just hours before markets closed.</div>
+  <div class="article-para no-drop-cap">The implications are far-reaching. Industry experts are already calling this a turning point that will reshape the competitive landscape for years to come.</div>
+</div>
+</body></html>

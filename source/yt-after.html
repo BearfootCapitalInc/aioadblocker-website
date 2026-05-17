@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif; }
+body { width: 500px; height: 430px; background: #0f0f0f; color: white; padding: 0; overflow: hidden; }
+.yt-header { background: #0f0f0f; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #272727; }
+.yt-logo { display: flex; align-items: center; gap: 5px; }
+.yt-play { width: 28px; height: 20px; background: #ff0000; border-radius: 5px; display: flex; align-items: center; justify-content: center; }
+.yt-play::after { content: "▶"; color: white; font-size: 10px; margin-left: 2px; }
+.yt-brand { font-size: 16px; font-weight: 700; letter-spacing: -1px; }
+.yt-search { background: #121212; border: 1px solid #303030; height: 30px; flex: 1; max-width: 200px; margin: 0 10px; border-radius: 15px; padding: 0 12px; display: flex; align-items: center; color: #909090; font-size: 12px; }
+.yt-icons { display: flex; gap: 6px; align-items: center; }
+.aio-badge { padding: 4px 9px; background: rgba(61,220,132,0.18); border: 1px solid #3ddc84; border-radius: 12px; color: #3ddc84; font-size: 9px; font-family: 'Courier New', monospace; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; font-weight: 700; }
+.aio-badge svg { width: 12px; height: 14px; }
+.yt-avatar { width: 26px; height: 26px; background: linear-gradient(135deg,#4a6cb0,#6b8fd9); border-radius: 50%; }
+
+.yt-player { width: 100%; aspect-ratio: 16/9; background: #000; position: relative; overflow: hidden; }
+.video-content { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(180deg, #ffb37a 0%, #ffa07a 18%, #ff8c69 35%, #f9d4a8 55%, #afdde8 56%, #5fb8c8 75%, #2d7f8e 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.sun { position: absolute; top: 24%; right: 24%; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle, #fff8e7 0%, #ffd47a 60%, #ff8c4d 100%); box-shadow: 0 0 50px rgba(255,180,100,0.7), 0 0 100px rgba(255,200,120,0.4); z-index: 1; }
+.sun-reflection { position: absolute; left: 50%; top: 56%; transform: translateX(-50%); width: 50px; height: 120px; background: linear-gradient(180deg, rgba(255,220,140,0.7) 0%, rgba(255,200,120,0.4) 50%, transparent 100%); border-radius: 50% 50% 0 0 / 70% 70% 0 0; filter: blur(4px); z-index: 2; }
+.wave-1 { position: absolute; left: -10%; right: -10%; top: 60%; height: 16px; background: rgba(255,255,255,0.4); border-radius: 50%; filter: blur(2px); z-index: 3; transform: rotate(-1deg); }
+.wave-2 { position: absolute; left: -10%; right: -10%; top: 70%; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; filter: blur(2px); z-index: 3; }
+.wave-3 { position: absolute; left: -10%; right: -10%; top: 82%; height: 18px; background: rgba(255,255,255,0.7); border-radius: 50%; filter: blur(3px); z-index: 3; }
+.sand { position: absolute; bottom: 0; left: 0; right: 0; height: 14%; background: linear-gradient(180deg, #f4d8a8 0%, #e8c084 100%); z-index: 4; }
+.palm-trunk { position: absolute; left: 14%; bottom: 14%; width: 8px; height: 110px; background: linear-gradient(90deg, #3d2817 0%, #6b4423 50%, #3d2817 100%); border-radius: 4px; z-index: 5; transform: rotate(-4deg); transform-origin: bottom; }
+.palm-leaves { position: absolute; left: calc(14% - 38px); bottom: calc(14% + 100px); width: 90px; height: 70px; z-index: 5; }
+.palm-leaf { position: absolute; left: 38px; top: 32px; width: 50px; height: 14px; background: linear-gradient(90deg, #1a5928 0%, #2d8c3a 100%); border-radius: 50%; transform-origin: left center; }
+.vid-play-overlay { position: relative; z-index: 10; width: 56px; height: 56px; border-radius: 50%; background: rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.9); display: inline-flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+.vid-play-overlay::after { content: "▶"; color: white; font-size: 22px; margin-left: 4px; }
+.yt-player-controls { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px 12px; background: rgba(0,0,0,0.85); display: flex; align-items: center; gap: 8px; height: 26px; }
+.yt-progress { flex: 1; height: 3px; background: rgba(255,255,255,0.3); position: relative; }
+.yt-progress::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 42%; background: #ff0000; }
+.yt-time { font-size: 10px; color: white; }
+</style></head><body>
+<div class="yt-header">
+  <div class="yt-logo"><div class="yt-play"></div><div class="yt-brand">YouTube</div></div>
+  <div class="yt-search">Search</div>
+  <div class="yt-icons">
+    <div class="aio-badge">
+      <svg viewBox="0 0 100 116"><path d="M 50,4 L 94,20 Q 94,76 50,112 Q 6,76 6,20 Z" fill="#1E3A6B"/><path d="M 50,14 L 82,26 Q 82,68 50,98 Q 18,68 18,26 Z" fill="#2D5AA0"/><path d="M 50,24 L 72,32 Q 72,60 50,82 Q 28,60 28,32 Z" fill="#4A8BDF"/><circle cx="50" cy="49" r="11" fill="none" stroke="#FFFFFF" stroke-width="3"/><line x1="42" y1="41" x2="58" y2="57" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg>
+      17 BLOCKED
+    </div>
+    <div class="yt-avatar"></div>
+  </div>
+</div>
+<div class="yt-player">
+  <div class="video-content">
+    <div class="sun"></div>
+    <div class="sun-reflection"></div>
+    <div class="wave-1"></div>
+    <div class="wave-2"></div>
+    <div class="wave-3"></div>
+    <div class="sand"></div>
+    <div class="palm-trunk"></div>
+    <div class="palm-leaves">
+      <div class="palm-leaf" style="transform: rotate(-30deg);"></div>
+      <div class="palm-leaf" style="transform: rotate(-5deg); top:36px;"></div>
+      <div class="palm-leaf" style="transform: rotate(25deg); top:44px;"></div>
+      <div class="palm-leaf" style="transform: rotate(-50deg); left:30px; width:42px;"></div>
+      <div class="palm-leaf" style="transform: rotate(50deg); top:52px; width:42px;"></div>
+    </div>
+    <div class="vid-play-overlay"></div>
+  </div>
+  <div class="yt-player-controls">
+    <span style="color:white;font-size:12px">⏸</span>
+    <div class="yt-progress"></div>
+    <span class="yt-time">4:51 / 12:08</span>
+  </div>
+</div>
+</body></html>
