@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wait — don't go yet | AIO Adblocker</title>
+<meta name="description" content="You just uninstalled AIO Adblocker. Reinstall now or tell us why you left — quick, one click.">
+<meta name="robots" content="noindex,nofollow">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a1828;
+  --bg2: #14304a;
+  --green: #3ddc84;
+  --cyan: #7fffd4;
+  --blue1: #1E3A6B;
+  --blue2: #2D5AA0;
+  --blue3: #4A8BDF;
+  --warn: #ff7a59;
+  --warn-glow: rgba(255,122,89,0.35);
+  --text: #d8eef0;
+  --text-mute: #7aa8b5;
+  --border: rgba(125,255,212,0.15);
+  --border-warn: rgba(255,122,89,0.28);
+}
+html, body { height: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container { max-width: 880px; margin: 0 auto; padding: 0 28px; width: 100%; }
+
+/* ─────────── HERO ─────────── */
+.hero {
+  position: relative;
+  padding: 80px 0 70px;
+  text-align: center;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(255,122,89,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 70%, rgba(74,139,223,0.14) 0%, transparent 55%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(125,255,212,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125,255,212,0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; width: 100%; }
+
+.shield-wrap {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 32px;
+  animation: shield-fade 1.2s ease-out;
+}
+@keyframes shield-fade {
+  from { opacity: 0; transform: translateY(-12px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.shield {
+  width: 110px; height: 128px;
+  filter: drop-shadow(0 14px 40px rgba(74,139,223,0.35)) saturate(0.55) brightness(0.78);
+  transition: filter 0.5s ease;
+}
+.shield-wrap:hover .shield { filter: drop-shadow(0 14px 40px rgba(61,220,132,0.55)) saturate(1) brightness(1); }
+.shield-x {
+  position: absolute;
+  top: -8px; right: -10px;
+  width: 38px; height: 38px;
+  background: var(--warn);
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px var(--warn-glow);
+  font-family: 'Courier New', monospace;
+  line-height: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255,122,89,0.10);
+  border: 1px solid var(--border-warn);
+  color: var(--warn);
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.hero h1 {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  color: white;
+  margin-bottom: 18px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero h1 .warn { color: var(--warn); }
+.hero h1 .green { color: var(--green); }
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-mute);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.55;
+}
+.hero-sub strong { color: white; font-weight: 700; }
+
+.cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+.btn-reinstall {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 19px 40px;
+  background: var(--green);
+  color: var(--bg);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: 0.4px;
+  box-shadow: 0 8px 28px rgba(61,220,132,0.42);
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: none;
+  cursor: pointer;
+  animation: cta-pulse 2.6s ease-in-out infinite;
+}
+.btn-reinstall:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(61,220,132,0.65);
+}
+.btn-reinstall .arrow {
+  animation: cta-arrow 1.4s ease-in-out infinite;
+  font-size: 18px;
+}
+@keyframes cta-pulse {
+  0%,100% { box-shadow: 0 8px 28px rgba(61,220,132,0.42); }
+  50%     { box-shadow: 0 12px 40px rgba(61,220,132,0.75), 0 0 0 8px rgba(61,220,132,0.10); }
+}
+@keyframes cta-arrow {
+  0%,100% { transform: translateX(0); }
+  50%     { transform: translateX(4px); }
+}
+
+.link-feedback {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  color: var(--text-mute);
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 4px;
+  transition: color 0.15s;
+  border-bottom: 1px dashed transparent;
+}
+.link-feedback:hover { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+/* ─────────── LOSS REMINDER (mini) ─────────── */
+.loss-strip {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.loss-strip span {
+  display: flex; align-items: center; gap: 6px;
+}
+.loss-strip .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--warn);
+  box-shadow: 0 0 8px var(--warn-glow);
+  animation: dot-blink 1.6s ease-in-out infinite;
+}
+.loss-strip span:nth-child(2) .dot { animation-delay: 0.4s; }
+.loss-strip span:nth-child(3) .dot { animation-delay: 0.8s; }
+.loss-strip span:nth-child(4) .dot { animation-delay: 1.2s; }
+@keyframes dot-blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0.25; }
+}
+
+/* ─────────── FEEDBACK SECTION ─────────── */
+.feedback {
+  background: linear-gradient(180deg, rgba(13,33,56,0) 0%, rgba(13,33,56,0.5) 100%);
+  border-top: 1px solid var(--border);
+  padding: 70px 0 60px;
+  scroll-margin-top: 20px;
+}
+.fb-head { text-align: center; margin-bottom: 36px; }
+.fb-eyebrow {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.fb-head h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.6px;
+  margin-bottom: 10px;
+}
+.fb-head p {
+  color: var(--text-mute);
+  font-size: 15px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  background: rgba(26,52,80,0.45);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+  font-family: inherit;
+  transition: all 0.15s;
+  width: 100%;
+}
+.chip:hover {
+  background: rgba(61,220,132,0.10);
+  border-color: rgba(61,220,132,0.4);
+  transform: translateY(-2px);
+  color: white;
+}
+.chip:active { transform: translateY(0); }
+.chip.selected {
+  background: rgba(61,220,132,0.18);
+  border-color: var(--green);
+  color: white;
+  box-shadow: 0 0 0 1px var(--green), 0 6px 18px rgba(61,220,132,0.25);
+}
+.chip .emoji { font-size: 22px; flex-shrink: 0; }
+
+/* Optional details + email */
+.fb-extra {
+  max-width: 620px;
+  margin: 32px auto 0;
+  display: none;
+}
+.fb-extra.show { display: block; animation: fade-up 0.4s ease; }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fb-extra textarea,
+.fb-extra input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(10,24,40,0.6);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  margin-bottom: 12px;
+  resize: vertical;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.fb-extra textarea { min-height: 90px; }
+.fb-extra textarea:focus,
+.fb-extra input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(61,220,132,0.15);
+}
+.fb-extra textarea::placeholder,
+.fb-extra input::placeholder { color: rgba(125,168,181,0.6); }
+
+.fb-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.btn-submit {
+  background: var(--cyan);
+  color: var(--bg);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 14px rgba(127,255,212,0.25);
+}
+.btn-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(127,255,212,0.4); }
+.btn-submit:disabled {
+  opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none;
+}
+.fb-skip {
+  background: transparent;
+  border: none;
+  color: var(--text-mute);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 4px;
+}
+.fb-skip:hover { color: var(--text); }
+
+/* ─────────── THANK-YOU STATE ─────────── */
+.thank-you {
+  display: none;
+  text-align: center;
+  padding: 48px 24px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.thank-you.show { display: block; animation: fade-up 0.5s ease; }
+.thank-you .check-big {
+  width: 64px; height: 64px;
+  background: var(--green);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 28px rgba(61,220,132,0.4);
+}
+.thank-you h3 {
+  font-size: 26px;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -0.4px;
+}
+.thank-you p {
+  color: var(--text-mute);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+.thank-you .btn-reinstall { padding: 14px 30px; font-size: 15px; animation: none; }
+
+/* ─────────── STICKY REINSTALL ─────────── */
+#sticky-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(10,24,40,0.96);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(61,220,132,0.3);
+  padding: 12px 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+  transform: translateY(110%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+#sticky-cta.show { transform: translateY(0); }
+.sticky-text { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
+.sticky-text svg { width: 28px; height: 32px; flex-shrink: 0; opacity: 0.85; }
+.sticky-text .label { font-size: 13px; color: white; font-weight: 700; line-height: 1.2; }
+.sticky-text .sub { font-size: 11px; color: var(--text-mute); font-family: 'Courier New', monospace; letter-spacing: 1px; margin-top: 2px; }
+#sticky-cta .btn-reinstall {
+  padding: 11px 22px;
+  font-size: 13px;
+  animation: none;
+  box-shadow: 0 4px 14px rgba(61,220,132,0.3);
+}
+
+/* ─────────── FOOTER ─────────── */
+footer {
+  text-align: center;
+  padding: 28px 20px 100px;
+  font-size: 12px;
+  color: var(--text-mute);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+footer a { color: var(--text-mute); text-decoration: none; border-bottom: 1px dotted transparent; }
+footer a:hover { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+/* ─────────── RESPONSIVE ─────────── */
+@media (max-width: 640px) {
+  .hero { padding: 60px 0 50px; }
+  .hero h1 { font-size: 34px; letter-spacing: -0.6px; }
+  .hero-sub { font-size: 16px; }
+  .btn-reinstall { padding: 17px 32px; font-size: 16px; }
+  .fb-head h2 { font-size: 25px; }
+  .loss-strip { gap: 14px; font-size: 10px; letter-spacing: 1.5px; }
+  .chip-grid { grid-template-columns: 1fr; }
+  #sticky-cta .sub { display: none; }
+  #sticky-cta { padding: 10px 14px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container hero-inner">
+
+    <div class="shield-wrap" aria-hidden="true">
+      <svg class="shield" viewBox="0 0 100 116">
+        <path d="M 50,4 L 94,20 Q 94,76 50,112 Q 6,76 6,20 Z" fill="#1E3A6B"/>
+        <path d="M 50,14 L 82,26 Q 82,68 50,98 Q 18,68 18,26 Z" fill="#2D5AA0"/>
+        <path d="M 50,24 L 72,32 Q 72,60 50,82 Q 28,60 28,32 Z" fill="#4A8BDF"/>
+        <circle cx="50" cy="49" r="11" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+        <line x1="42" y1="41" x2="58" y2="57" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div class="shield-x">×</div>
+    </div>
+
+    <div class="hero-tag">// PROTECTION OFFLINE</div>
+
+    <h1>Wait — did you uninstall <span class="green">AIO</span> <span class="warn">by mistake?</span></h1>
+
+    <p class="hero-sub">
+      Your shield is down. Right now, every site you visit can <strong>track you, profile you, and slam you with ads again.</strong> One click brings it back.
+    </p>
+
+    <div class="cta-row">
+      <a id="reinstall-top" class="btn-reinstall" href="#" rel="noopener">
+        Reinstall AIO Adblocker
+        <span class="arrow">→</span>
+      </a>
+      <button class="link-feedback" onclick="scrollToFeedback()">
+        No, I meant it — let me tell you why ↓
+      </button>
+    </div>
+
+    <div class="loss-strip" aria-hidden="true">
+      <span><span class="dot"></span> Ads back on</span>
+      <span><span class="dot"></span> Trackers active</span>
+      <span><span class="dot"></span> Pop-ups armed</span>
+      <span><span class="dot"></span> Malware shield off</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="feedback" id="feedback">
+  <div class="container">
+
+    <div id="fb-form-wrap">
+      <div class="fb-head">
+        <div class="fb-eyebrow">// 30 seconds, anonymous</div>
+        <h2>What pushed you to uninstall?</h2>
+        <p>Pick the closest reason — it helps us fix what's broken. Click one, that's it.</p>
+      </div>
+
+      <div class="chip-grid" id="chip-grid">
+        <button class="chip" data-reason="broken_site">
+          <span class="emoji">😤</span>
+          <span>AIO broke a site I use</span>
+        </button>
+        <button class="chip" data-reason="too_many_ads">
+          <span class="emoji">🎯</span>
+          <span>Ads still got through</span>
+        </button>
+        <button class="chip" data-reason="slow">
+          <span class="emoji">🐌</span>
+          <span>Slowed down my browser</span>
+        </button>
+        <button class="chip" data-reason="no_value">
+          <span class="emoji">🤷</span>
+          <span>Didn't notice it doing anything</span>
+        </button>
+        <button class="chip" data-reason="switched">
+          <span class="emoji">🆚</span>
+          <span>Switched to another adblocker</span>
+        </button>
+        <button class="chip" data-reason="trying">
+          <span class="emoji">🧪</span>
+          <span>Was just trying it out</span>
+        </button>
+        <button class="chip" data-reason="bug">
+          <span class="emoji">🐛</span>
+          <span>Had bugs or glitches</span>
+        </button>
+        <button class="chip" data-reason="other">
+          <span class="emoji">💬</span>
+          <span>Other — I'll explain</span>
+        </button>
+      </div>
+
+      <div class="fb-extra" id="fb-extra">
+        <textarea id="fb-text" placeholder="Anything else you'd want us to know? (optional — but read by humans)"></textarea>
+        <input id="fb-email" type="email" placeholder="Email if you'd like a reply (optional)">
+        <div class="fb-submit">
+          <button class="fb-skip" onclick="submitFeedback(true)">Skip — just send my reason</button>
+          <button class="btn-submit" id="fb-submit" onclick="submitFeedback(false)">Send feedback</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="thank-you" id="thank-you">
+      <div class="check-big">✓</div>
+      <h3>Got it. Thank you.</h3>
+      <p>That's genuinely useful — real humans read every reason and the fixes go into the next update. Whenever you want AIO back, the door's open.</p>
+      <a id="reinstall-thanks" class="btn-reinstall" href="#" rel="noopener">
+        Reinstall AIO &nbsp;<span class="arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div id="sticky-cta" aria-hidden="true">
+  <div class="sticky-text">
+    <svg viewBox="0 0 100 116" aria-hidden="true">
+      <path d="M 50,4 L 94,20 Q 94,76 50,112 Q 6,76 6,20 Z" fill="#1E3A6B"/>
+      <path d="M 50,14 L 82,26 Q 82,68 50,98 Q 18,68 18,26 Z" fill="#2D5AA0"/>
+      <path d="M 50,24 L 72,32 Q 72,60 50,82 Q 28,60 28,32 Z" fill="#4A8BDF"/>
+      <circle cx="50" cy="49" r="11" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+      <line x1="42" y1="41" x2="58" y2="57" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="label">Bring AIO back?</div>
+      <div class="sub">// ONE CLICK</div>
+    </div>
+  </div>
+  <a id="reinstall-sticky" class="btn-reinstall" href="#" rel="noopener">Reinstall →</a>
+</div>
+
+<footer>
+  <a href="/">aioadblocker.com</a> &nbsp;·&nbsp;
+  <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp;
+  Sorry to see you go. Feedback genuinely matters.
+</footer>
+
+<script>
+(() => {
+  // ─── CONFIG ─────────────────────────────────────────────
+  // TODO: replace with the actual Chrome Web Store URL once the AIO listing is live.
+  const CWS_URL  = 'https://chromewebstore.google.com/detail/aio-adblocker/REPLACE_WITH_REAL_ID';
+  const FEEDBACK_ENDPOINT = '/api/uninstall-feedback';  // POST target on aioadblocker.com backend
+
+  // ─── URL PARAMS (passed by chrome.runtime.setUninstallURL) ──────
+  const qs = new URLSearchParams(location.search);
+  const aTkn = qs.get('a_tkn') || null;   // backend UID (may be null if /install/ never completed)
+  const sx   = qs.get('sx')    || null;   // store id (extension ID)
+
+  // ─── REINSTALL BUTTONS ──────────────────────────────────
+  document.querySelectorAll('#reinstall-top, #reinstall-sticky, #reinstall-thanks').forEach(a => {
+    a.href = CWS_URL;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.addEventListener('click', () => { trackEvent('reinstall_click'); });
+  });
+
+  // ─── SCROLL TO FEEDBACK ─────────────────────────────────
+  window.scrollToFeedback = () => {
+    document.getElementById('feedback').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    trackEvent('feedback_scroll');
+  };
+
+  // ─── STICKY CTA ─────────────────────────────────────────
+  const sticky = document.getElementById('sticky-cta');
+  let stickyShown = false;
+  window.addEventListener('scroll', () => {
+    const past = window.scrollY > window.innerHeight * 0.6;
+    if (past !== stickyShown) {
+      sticky.classList.toggle('show', past);
+      stickyShown = past;
+    }
+  }, { passive: true });
+
+  // ─── CHIP SELECTION ─────────────────────────────────────
+  let chosenReason = null;
+  const chips = document.querySelectorAll('.chip');
+  const extra = document.getElementById('fb-extra');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      // mark selected
+      chips.forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      chosenReason = chip.dataset.reason;
+
+      // reveal "anything else" field
+      extra.classList.add('show');
+
+      // auto-fire the no-text submit unless they want to add detail
+      // (we give them a moment to type instead of insta-firing)
+      // For "other" we keep it open and don't auto-submit; user types + clicks Send.
+      if (chosenReason !== 'other') {
+        // Fire a lightweight "reason chosen" event so we capture the reason
+        // even if they bounce before clicking Send.
+        sendFeedback({ reason: chosenReason, text: '', email: '', partial: true });
+      } else {
+        // Focus the text area for "other"
+        setTimeout(() => document.getElementById('fb-text').focus(), 200);
+      }
+    });
+  });
+
+  // ─── SUBMIT ─────────────────────────────────────────────
+  window.submitFeedback = (skipText) => {
+    if (!chosenReason) {
+      // Defensive — should not happen since form only shows after chip click
+      return;
+    }
+    const text  = skipText ? '' : (document.getElementById('fb-text').value  || '').trim();
+    const email = skipText ? '' : (document.getElementById('fb-email').value || '').trim();
+    sendFeedback({ reason: chosenReason, text, email, partial: false });
+    showThanks();
+  };
+
+  // ─── TRANSPORT ──────────────────────────────────────────
+  function sendFeedback(payload) {
+    const body = {
+      ...payload,
+      a_tkn: aTkn,
+      sx,
+      ua: navigator.userAgent,
+      lang: navigator.language,
+      ts: Date.now(),
+      // session-stable id so backend can dedupe partial+final from same user
+      session: getSessionId(),
+    };
+    const blob = new Blob([JSON.stringify(body)], { type: 'application/json' });
+    let ok = false;
+    try {
+      if (navigator.sendBeacon) {
+        ok = navigator.sendBeacon(FEEDBACK_ENDPOINT, blob);
+      }
+    } catch (_) {}
+    if (!ok) {
+      fetch(FEEDBACK_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        keepalive: true,
+        credentials: 'omit',
+      }).catch(() => {
+        // Fallback: stash locally so a manual export is possible if backend is down.
+        try {
+          const k = 'aio.uninstall.feedback.pending';
+          const arr = JSON.parse(localStorage.getItem(k) || '[]');
+          arr.push(body);
+          localStorage.setItem(k, JSON.stringify(arr));
+        } catch (_) {}
+      });
+    }
+  }
+
+  function trackEvent(name) {
+    sendFeedback({ event: name, reason: chosenReason, text: '', email: '', partial: true });
+  }
+
+  function getSessionId() {
+    try {
+      let s = sessionStorage.getItem('aio.uninstall.session');
+      if (!s) {
+        s = (crypto.randomUUID && crypto.randomUUID()) ||
+            ('s_' + Math.random().toString(36).slice(2) + Date.now().toString(36));
+        sessionStorage.setItem('aio.uninstall.session', s);
+      }
+      return s;
+    } catch (_) { return null; }
+  }
+
+  function showThanks() {
+    document.getElementById('fb-form-wrap').style.display = 'none';
+    document.getElementById('thank-you').classList.add('show');
+    document.getElementById('thank-you').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ─── PAGE LOAD — track view ────────────────────────────
+  // We fire a "view" beacon so we know how many people land here even if they bounce.
+  sendFeedback({ event: 'page_view', reason: null, text: '', email: '', partial: true });
+})();
+</script>
+
+</body>
+</html>
