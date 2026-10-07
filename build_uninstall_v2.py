@@ -47,14 +47,15 @@ CSS += """
       .feedback { padding: 36px 0 50px; }
       /* ── v2: dissociate the two jobs of the page — reinstall pitch on
          the dark page bg, feedback inside its own bordered panel ── */
-      .hero { padding-bottom: 34px; }
-      .feedback { background: none; padding: 8px 0 64px; }
+      .hero { padding-bottom: 44px; }
+      .feedback { background: none; padding: 0 0 70px; }
       .feedback .container {
-        background: linear-gradient(180deg, rgba(20,48,74,0.5) 0%, rgba(13,33,56,0.65) 100%);
-        border: 1px solid var(--border-warn);
-        border-radius: 18px;
+        background: #122c47;
+        border: 1px solid rgba(125,255,212,0.22);
+        border-top: 4px solid var(--warn);
+        border-radius: 16px;
         padding: 38px 44px 42px;
-        box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+        box-shadow: 0 24px 70px rgba(0,0,0,0.55);
       }
       @media (max-width: 640px) {
         .feedback .container { padding: 26px 16px 30px; border-radius: 14px; }

@@ -1,6 +1,6 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 02:39:23.349723518 +0200
-@@ -164,7 +164,68 @@
++++ uninstall_v2.html	2026-10-07 02:41:04.761925995 +0200
+@@ -164,7 +164,69 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
        }
@@ -34,14 +34,15 @@
 +      .feedback { padding: 36px 0 50px; }
 +      /* ── v2: dissociate the two jobs of the page — reinstall pitch on
 +         the dark page bg, feedback inside its own bordered panel ── */
-+      .hero { padding-bottom: 34px; }
-+      .feedback { background: none; padding: 8px 0 64px; }
++      .hero { padding-bottom: 44px; }
++      .feedback { background: none; padding: 0 0 70px; }
 +      .feedback .container {
-+        background: linear-gradient(180deg, rgba(20,48,74,0.5) 0%, rgba(13,33,56,0.65) 100%);
-+        border: 1px solid var(--border-warn);
-+        border-radius: 18px;
++        background: #122c47;
++        border: 1px solid rgba(125,255,212,0.22);
++        border-top: 4px solid var(--warn);
++        border-radius: 16px;
 +        padding: 38px 44px 42px;
-+        box-shadow: 0 18px 50px rgba(0,0,0,0.35);
++        box-shadow: 0 24px 70px rgba(0,0,0,0.55);
 +      }
 +      @media (max-width: 640px) {
 +        .feedback .container { padding: 26px 16px 30px; border-radius: 14px; }
@@ -70,7 +71,7 @@
  </head>
  <body>
  
-@@ -198,7 +259,7 @@
+@@ -198,7 +260,7 @@
  				<span class="arrow">→</span>
  			</a>
  			<button class="link-feedback" onclick="scrollToFeedback()">
@@ -79,7 +80,7 @@
  			</button>
  		</div>
  
-@@ -219,7 +280,7 @@
+@@ -219,7 +281,7 @@
  			<div class="fb-head">
  				<div class="fb-eyebrow">// 30 seconds, anonymous</div>
  				<h2>What pushed you to uninstall?</h2>
@@ -88,7 +89,7 @@
  			</div>
  
  			<div class="chip-grid" id="chip-grid">
-@@ -246,6 +307,15 @@
+@@ -246,6 +308,15 @@
  			</script>
  
  			<div class="fb-extra" id="fb-extra">
@@ -104,7 +105,7 @@
  				<textarea id="fb-text" placeholder="Anything else you'd want us to know? (optional — but read by humans)"></textarea>
  				<input id="fb-email" type="email" placeholder="Email if you'd like a reply (optional)">
  				<div class="fb-submit">
-@@ -297,12 +367,43 @@
+@@ -297,12 +368,43 @@
          const CWS_URL = "https:\/\/aioadblocker.com\/rinsorg\/";
          const FEEDBACK_ENDPOINT = '/uninstall/feedback/';
  
@@ -150,7 +151,7 @@
          document.querySelectorAll('#reinstall-top, #reinstall-sticky, #reinstall-thanks').forEach(a => {
              a.href = CWS_URL;
              a.target = '_blank';
-@@ -323,6 +424,60 @@
+@@ -323,6 +425,60 @@
              }
          }, { passive: true });
  
@@ -211,7 +212,7 @@
          let chosenReason = null;
          const chips = document.querySelectorAll('.chip');
          const extra = document.getElementById('fb-extra');
-@@ -333,29 +488,54 @@
+@@ -333,29 +489,54 @@
                  chip.classList.add('selected');
                  chosenReason = chip.dataset.reason;
                  extra.classList.add('show');
