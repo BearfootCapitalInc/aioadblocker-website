@@ -47,18 +47,31 @@ CSS += """
       .feedback { padding: 36px 0 50px; }
       /* ── v2: dissociate the two jobs of the page — reinstall pitch on
          the dark page bg, feedback inside its own bordered panel ── */
-      .hero { padding-bottom: 44px; }
+      /* Reinstall = the hero card, visually dominant: raised, green-topped */
+      .hero { padding: 26px 0 30px; }
+      .hero-inner {
+        background: #122c47;
+        border: 1px solid rgba(125,255,212,0.25);
+        border-top: 4px solid var(--green);
+        border-radius: 16px;
+        padding: 34px 44px 38px;
+        box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+        max-width: 980px;
+        margin: 0 auto;
+      }
+      .hero h1 { font-size: 36px; }
+      /* Feedback = secondary: quieter, flatter panel below */
       .feedback { background: none; padding: 0 0 70px; }
       .feedback .container {
-        background: #122c47;
-        border: 1px solid rgba(125,255,212,0.22);
-        border-top: 4px solid var(--warn);
+        background: rgba(13,33,56,0.5);
+        border: 1px solid rgba(125,255,212,0.14);
         border-radius: 16px;
-        padding: 38px 44px 42px;
-        box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+        padding: 32px 44px 38px;
       }
+      .fb-head h2 { font-size: 26px; }
       @media (max-width: 640px) {
-        .feedback .container { padding: 26px 16px 30px; border-radius: 14px; }
+        .hero-inner { padding: 24px 16px 28px; border-radius: 14px; }
+        .feedback .container { padding: 24px 16px 28px; border-radius: 14px; }
       }
 
       /* ── v2: make the input fields clearly visible (were near-invisible
