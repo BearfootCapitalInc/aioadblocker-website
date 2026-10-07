@@ -60,12 +60,7 @@ CSS += """
         max-width: 980px;
         margin: 0 auto;
       }
-      .hero h1 { font-size: 36px; margin-top: 18px; }
-      /* One centered lockup: [small shield] // PROTECTION OFFLINE */
-      .shield-wrap { display: inline-block; vertical-align: middle; margin: 0 12px 0 0; animation: none; }
-      .shield { width: 38px; height: 44px; }
-      .shield-x { width: 17px; height: 17px; font-size: 11px; top: -4px; right: -5px; }
-      .hero-tag { display: inline-block; vertical-align: middle; margin: 0; }
+      .hero h1 { font-size: 36px; margin-top: 6px; }
       .hero-sub { max-width: 560px; text-wrap: balance; margin-bottom: 18px; }
       /* A little breathing room around the reinstall CTA (not a lot) */
       .cta-row { margin-top: 22px; gap: 16px; margin-bottom: 6px; }
@@ -137,6 +132,11 @@ src = src.replace(
 # ── 2c. (J 2026-10-07) Drop the "What pushed you to uninstall?" title;
 #    the feedback pitch sentence becomes the headline itself.
 src = re.sub(r'\s*<h2>What pushed you to uninstall\?</h2>', '', src)
+
+# ── 2d0. (J 2026-10-07) Hero loses the shield graphic + PROTECTION OFFLINE
+#    tag entirely ("ugly") — the headline leads now.
+src = re.sub(r'\s*<div class="shield-wrap"[^>]*>.*?</div>\s*</div>', '', src, count=1, flags=re.S)
+src = re.sub(r'\s*<div class="hero-tag">// PROTECTION OFFLINE</div>', '', src)
 
 # ── 2d. (J 2026-10-07) Move the "No, I meant it" message out of the hero
 #    card and into the feedback head, under the headline.
