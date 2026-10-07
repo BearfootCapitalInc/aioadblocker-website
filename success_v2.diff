@@ -1,5 +1,5 @@
 --- success_live.html	2026-10-07 04:16:03.792085885 +0200
-+++ success_v2.html	2026-10-07 04:22:12.241786440 +0200
++++ success_v2.html	2026-10-07 04:24:41.942474353 +0200
 @@ -87,7 +87,47 @@
            .cta-row { flex-direction: column; gap: 14px; }
            .btn-cta { width: 100%; text-align: center; }
@@ -78,7 +78,7 @@
 +					<div class="mock-stat"><span>&#9679; ALL.TIME.BLOCKED</span><b>48.2K</b></div>
 +				</div>
 +				<h3>Your shield lives in the toolbar</h3>
-+				<p>Click the AIO icon on any site to see how many ads and trackers were just blocked — on that page, and in total.</p>
++				<p>Click the AIO icon on any site to watch it work — ads and trackers blocked on that page, plus your all-time count climbing.</p>
 +			</div>
  
 +			<div class="tour-card tour-star">
@@ -90,8 +90,8 @@
 +					<div class="mock-site">example-site.com</div>
 +					<span class="mock-btn">Disable on this site</span>
 +				</div>
-+				<h3>Site acting weird? Pause, don't uninstall</h3>
-+				<p>Very rarely, a site misbehaves with an adblocker on. Click the AIO icon → <strong>Disable on this site</strong>. AIO switches off for that one site only — everything else stays protected.</p>
++				<h3>You decide where AIO runs</h3>
++				<p>A site acting up? Click the AIO icon → <strong>Disable on this site</strong>. AIO steps aside on that one site — and keeps protecting you everywhere else.</p>
 +			</div>
 +
 +			<div class="tour-card">
@@ -101,8 +101,8 @@
 +					<div class="mock-toggle"><span class="mock-toggle-label">SYS::PROTECTED</span><span class="mock-pill"></span></div>
 +					<div class="mock-toggle"><span class="mock-toggle-label off">THIS.SITE</span><span class="mock-pill off"></span></div>
 +				</div>
-+				<h3>Everything's reversible</h3>
-+				<p>The same button turns protection back on. The big switch pauses AIO everywhere — so there's never a reason to uninstall just to switch it off.</p>
++				<h3>You're always in control</h3>
++				<p>Flip protection back on with the same button, or pause everything at once with the master switch. Your browsing, your rules.</p>
 +			</div>
 +
 +		</div>

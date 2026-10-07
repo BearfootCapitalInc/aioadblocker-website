@@ -83,7 +83,7 @@ TOUR = f"""
 \t\t\t\t\t<div class="mock-stat"><span>&#9679; ALL.TIME.BLOCKED</span><b>48.2K</b></div>
 \t\t\t\t</div>
 \t\t\t\t<h3>Your shield lives in the toolbar</h3>
-\t\t\t\t<p>Click the AIO icon on any site to see how many ads and trackers were just blocked — on that page, and in total.</p>
+\t\t\t\t<p>Click the AIO icon on any site to watch it work — ads and trackers blocked on that page, plus your all-time count climbing.</p>
 \t\t\t</div>
 
 \t\t\t<div class="tour-card tour-star">
@@ -95,8 +95,8 @@ TOUR = f"""
 \t\t\t\t\t<div class="mock-site">example-site.com</div>
 \t\t\t\t\t<span class="mock-btn">Disable on this site</span>
 \t\t\t\t</div>
-\t\t\t\t<h3>Site acting weird? Pause, don't uninstall</h3>
-\t\t\t\t<p>Very rarely, a site misbehaves with an adblocker on. Click the AIO icon → <strong>Disable on this site</strong>. AIO switches off for that one site only — everything else stays protected.</p>
+\t\t\t\t<h3>You decide where AIO runs</h3>
+\t\t\t\t<p>A site acting up? Click the AIO icon → <strong>Disable on this site</strong>. AIO steps aside on that one site — and keeps protecting you everywhere else.</p>
 \t\t\t</div>
 
 \t\t\t<div class="tour-card">
@@ -106,8 +106,8 @@ TOUR = f"""
 \t\t\t\t\t<div class="mock-toggle"><span class="mock-toggle-label">SYS::PROTECTED</span><span class="mock-pill"></span></div>
 \t\t\t\t\t<div class="mock-toggle"><span class="mock-toggle-label off">THIS.SITE</span><span class="mock-pill off"></span></div>
 \t\t\t\t</div>
-\t\t\t\t<h3>Everything's reversible</h3>
-\t\t\t\t<p>The same button turns protection back on. The big switch pauses AIO everywhere — so there's never a reason to uninstall just to switch it off.</p>
+\t\t\t\t<h3>You're always in control</h3>
+\t\t\t\t<p>Flip protection back on with the same button, or pause everything at once with the master switch. Your browsing, your rules.</p>
 \t\t\t</div>
 
 \t\t</div>
