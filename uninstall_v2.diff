@@ -1,5 +1,5 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 03:02:16.878624614 +0200
++++ uninstall_v2.html	2026-10-07 03:51:55.437583905 +0200
 @@ -164,7 +164,93 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
@@ -50,10 +50,10 @@
 +      .hero h1 { font-size: 36px; margin-top: 0; }
 +      .hero-sub { max-width: 560px; text-wrap: balance; margin-bottom: 18px; }
 +      /* Clean brand lockup: AIO icon + status pill */
-+      .hero-brand { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 20px; }
-+      .hero-brand img { width: 44px; height: 44px; filter: grayscale(0.35) brightness(0.9); }
-+      .status-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px; background: rgba(255,99,99,0.1); border: 1px solid rgba(255,99,99,0.3); border-radius: 999px; color: #ff9d94; font-size: 13px; font-weight: 600; letter-spacing: 0.2px; }
-+      .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff5f56; box-shadow: 0 0 9px rgba(255,95,86,0.75); animation: dot-blink 1.6s ease-in-out infinite; }
++      .hero-brand { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 24px; }
++      .hero-brand img { width: 76px; height: 76px; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45)); }
++      .status-pill { display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px; background: rgba(10,24,40,0.75); border: 1px solid rgba(125,255,212,0.28); border-radius: 999px; color: #eef7f8; font-size: 16px; font-weight: 600; letter-spacing: 0.2px; box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
++      .status-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5f56; box-shadow: 0 0 10px rgba(255,95,86,0.8); animation: dot-blink 1.6s ease-in-out infinite; }
 +      /* A little breathing room around the reinstall CTA (not a lot) */
 +      .cta-row { margin-top: 22px; gap: 16px; margin-bottom: 6px; }
 +      /* Feedback = secondary: quieter, flatter panel below */
