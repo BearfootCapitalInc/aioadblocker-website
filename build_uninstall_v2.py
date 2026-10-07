@@ -45,6 +45,15 @@ CSS += """
       .btn-reinstall { padding: 14px 32px; font-size: 15px; }
       .loss-strip { display: none; }
       .feedback { padding: 36px 0 50px; }
+      /* ── v2: make the input fields clearly visible (were near-invisible
+         — page-coloured bg + 15%-opacity border) ── */
+      .fb-extra textarea, .fb-extra input {
+        background: rgba(26,52,80,0.6);
+        border: 1px solid rgba(125,255,212,0.38);
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+      }
+      .fb-extra textarea::placeholder, .fb-extra input::placeholder { color: rgba(154,196,208,0.85); }
+
       /* ── v2 wide screens: one shared 980px column, all edges aligned ── */
       @media (min-width: 1100px) {
         .container { max-width: 980px; }
