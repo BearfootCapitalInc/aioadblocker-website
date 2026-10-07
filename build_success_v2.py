@@ -51,6 +51,9 @@ CSS = """
       .mock-allow-row .site { font-size: 10px; letter-spacing: 1px; color: #E8F5FF; }
       .mock-allow-row .site::before { content: "\\2B22  "; color: #4DFFFF; font-size: 8px; }
       .mock-allow-btn { background: rgba(0,255,184,0.08); border: 1px solid rgba(0,255,184,0.45); color: #00FFB8; font-size: 9px; font-weight: 600; letter-spacing: 2.4px; padding: 5px 12px; }
+      .mock-row.spread { justify-content: space-between; }
+      .mock-ctrl { display: flex; align-items: center; gap: 10px; }
+      .mock-gear { color: rgba(232,245,255,0.55); font-size: 15px; line-height: 1; }
       .mock-toggle { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
       .mock-toggle:first-of-type { margin-top: 0; }
       .mock-toggle-label { font-size: 9px; letter-spacing: 2px; color: #00FFB8; }
@@ -111,11 +114,13 @@ TOUR = f"""
 \t\t\t\t<div class="tour-num">3</div>
 \t\t\t\t<div class="mock">
 \t\t\t\t\t<div class="mock-head"><span>NODE.7F3C</span><span class="act">[ SYS.ACTIVE ]</span></div>
-\t\t\t\t\t<div class="mock-toggle"><span class="mock-toggle-label">SYS::PROTECTED</span><span class="mock-pill"></span></div>
-\t\t\t\t\t<div class="mock-toggle"><span class="mock-toggle-label off">THIS.SITE</span><span class="mock-pill off"></span></div>
+\t\t\t\t\t<div class="mock-row spread">
+\t\t\t\t\t\t<div class="mock-row">{SHIELD}<span class="mock-name">ALL-IN-ONE<span class="st">&#9679; SYS::PROTECTED</span></span></div>
+\t\t\t\t\t\t<div class="mock-ctrl"><span class="mock-gear">&#9881;</span><span class="mock-pill"></span></div>
+\t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t\t<h3>You're always in control</h3>
-\t\t\t\t<p>Changed your mind? The same button switches the site back. The master switch pauses everything at once. Your browsing, your rules.</p>
+\t\t\t\t<p>Changed your mind about a site? Hit its button again to re-protect it. And the switch at the top of the popup pauses everything at once. Your browsing, your rules.</p>
 \t\t\t</div>
 
 \t\t</div>
