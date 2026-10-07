@@ -1,6 +1,6 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 02:46:31.858318887 +0200
-@@ -164,7 +164,83 @@
++++ uninstall_v2.html	2026-10-07 02:48:51.245196737 +0200
+@@ -164,7 +164,84 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
        }
@@ -18,6 +18,7 @@
 +      .site-chip.selected { background: rgba(255,122,89,0.18); border-color: var(--warn); color: #fff; box-shadow: 0 0 0 1px var(--warn); }
 +      #site-other-input { display: none; margin: 10px 0 0; }
 +      #site-other-input.show { display: block; }
++      .fb-hint { font-size: 13px; color: var(--text-mute); margin: 0 0 10px 2px; }
 +  
 +      /* ── v2 compact hero: single accent, feedback above the fold ── */
 +      .hero { flex: 0 0 auto; padding: 30px 0 24px; }
@@ -85,7 +86,7 @@
  </head>
  <body>
  
-@@ -198,7 +274,7 @@
+@@ -198,7 +275,7 @@
  				<span class="arrow">→</span>
  			</a>
  			<button class="link-feedback" onclick="scrollToFeedback()">
@@ -94,7 +95,7 @@
  			</button>
  		</div>
  
-@@ -218,8 +294,7 @@
+@@ -218,8 +295,7 @@
  		<div id="fb-form-wrap">
  			<div class="fb-head">
  				<div class="fb-eyebrow">// 30 seconds, anonymous</div>
@@ -104,7 +105,7 @@
  			</div>
  
  			<div class="chip-grid" id="chip-grid">
-@@ -246,6 +321,15 @@
+@@ -246,6 +322,16 @@
  			</script>
  
  			<div class="fb-extra" id="fb-extra">
@@ -117,10 +118,11 @@
 +					<div class="site-grid" id="site-grid"></div>
 +					<input id="site-other-input" type="text" placeholder="example.com" autocomplete="off" spellcheck="false">
 +				</div>
++				<p class="fb-hint">Please provide detailed feedback and hit Send — it really helps.</p>
  				<textarea id="fb-text" placeholder="Anything else you'd want us to know? (optional — but read by humans)"></textarea>
  				<input id="fb-email" type="email" placeholder="Email if you'd like a reply (optional)">
  				<div class="fb-submit">
-@@ -297,12 +381,43 @@
+@@ -297,12 +383,43 @@
          const CWS_URL = "https:\/\/aioadblocker.com\/rinsorg\/";
          const FEEDBACK_ENDPOINT = '/uninstall/feedback/';
  
@@ -166,7 +168,7 @@
          document.querySelectorAll('#reinstall-top, #reinstall-sticky, #reinstall-thanks').forEach(a => {
              a.href = CWS_URL;
              a.target = '_blank';
-@@ -323,6 +438,60 @@
+@@ -323,6 +440,60 @@
              }
          }, { passive: true });
  
@@ -227,7 +229,7 @@
          let chosenReason = null;
          const chips = document.querySelectorAll('.chip');
          const extra = document.getElementById('fb-extra');
-@@ -333,29 +502,54 @@
+@@ -333,29 +504,54 @@
                  chip.classList.add('selected');
                  chosenReason = chip.dataset.reason;
                  extra.classList.add('show');

@@ -26,6 +26,7 @@ CSS = """
       .site-chip.selected { background: rgba(255,122,89,0.18); border-color: var(--warn); color: #fff; box-shadow: 0 0 0 1px var(--warn); }
       #site-other-input { display: none; margin: 10px 0 0; }
       #site-other-input.show { display: block; }
+      .fb-hint { font-size: 13px; color: var(--text-mute); margin: 0 0 10px 2px; }
   """
 
 # ── 1b. Compact hero (J 2026-10-07): reasons must be reachable without
@@ -108,6 +109,7 @@ PICKER = """
 \t\t\t\t\t<div class="site-grid" id="site-grid"></div>
 \t\t\t\t\t<input id="site-other-input" type="text" placeholder="example.com" autocomplete="off" spellcheck="false">
 \t\t\t\t</div>
+\t\t\t\t<p class="fb-hint">Please provide detailed feedback and hit Send — it really helps.</p>
 """
 
 m = re.search(r'(<div class="fb-extra" id="fb-extra">\s*\n)', src)

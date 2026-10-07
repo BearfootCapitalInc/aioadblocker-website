@@ -177,6 +177,7 @@
       .site-chip.selected { background: rgba(255,122,89,0.18); border-color: var(--warn); color: #fff; box-shadow: 0 0 0 1px var(--warn); }
       #site-other-input { display: none; margin: 10px 0 0; }
       #site-other-input.show { display: block; }
+      .fb-hint { font-size: 13px; color: var(--text-mute); margin: 0 0 10px 2px; }
   
       /* ── v2 compact hero: single accent, feedback above the fold ── */
       .hero { flex: 0 0 auto; padding: 30px 0 24px; }
@@ -330,6 +331,7 @@
 					<div class="site-grid" id="site-grid"></div>
 					<input id="site-other-input" type="text" placeholder="example.com" autocomplete="off" spellcheck="false">
 				</div>
+				<p class="fb-hint">Please provide detailed feedback and hit Send — it really helps.</p>
 				<textarea id="fb-text" placeholder="Anything else you'd want us to know? (optional — but read by humans)"></textarea>
 				<input id="fb-email" type="email" placeholder="Email if you'd like a reply (optional)">
 				<div class="fb-submit">
