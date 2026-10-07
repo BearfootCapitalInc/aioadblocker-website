@@ -45,6 +45,12 @@ CSS = """
       .mock-stat b { font-size: 17px; letter-spacing: 0; color: #E8F5FF; font-weight: 700; }
       .mock-site { font-size: 10px; letter-spacing: 1px; color: rgba(232,245,255,0.75); margin: 10px 0 8px; }
       .mock-btn { display: block; text-align: center; background: rgba(0,255,184,0.08); border: 1px solid rgba(0,255,184,0.45); border-radius: 0; color: #00FFB8; font-size: 9px; font-weight: 600; letter-spacing: 2.4px; padding: 8px 10px; text-transform: uppercase; }
+      .mock-allow { border: 1px dashed rgba(0,255,184,0.4); padding: 9px 10px 10px; margin-top: 12px; }
+      .mock-allow-label { font-size: 8px; letter-spacing: 2px; color: #00FFB8; margin-bottom: 8px; }
+      .mock-allow-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+      .mock-allow-row .site { font-size: 10px; letter-spacing: 1px; color: #E8F5FF; }
+      .mock-allow-row .site::before { content: "\\2B22  "; color: #4DFFFF; font-size: 8px; }
+      .mock-allow-btn { background: rgba(0,255,184,0.08); border: 1px solid rgba(0,255,184,0.45); color: #00FFB8; font-size: 9px; font-weight: 600; letter-spacing: 2.4px; padding: 5px 12px; }
       .mock-toggle { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
       .mock-toggle:first-of-type { margin-top: 0; }
       .mock-toggle-label { font-size: 9px; letter-spacing: 2px; color: #00FFB8; }
@@ -92,11 +98,13 @@ TOUR = f"""
 \t\t\t\t<div class="mock">
 \t\t\t\t\t<div class="mock-head"><span>NODE.7F3C</span><span class="act">[ SYS.ACTIVE ]</span></div>
 \t\t\t\t\t<div class="mock-row">{SHIELD}<span class="mock-name">ALL-IN-ONE<span class="st">&#9679; SYS::PROTECTED</span></span></div>
-\t\t\t\t\t<div class="mock-site">example-site.com</div>
-\t\t\t\t\t<span class="mock-btn">Disable on this site</span>
+\t\t\t\t\t<div class="mock-allow">
+\t\t\t\t\t\t<div class="mock-allow-label">ALLOW ADS ON SITE</div>
+\t\t\t\t\t\t<div class="mock-allow-row"><span class="site">example-site.com</span><span class="mock-allow-btn">ALLOW</span></div>
+\t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t\t<h3>You decide where AIO runs</h3>
-\t\t\t\t<p>A site acting up? Click the AIO icon → <strong>Disable on this site</strong>. AIO steps aside on that one site — and keeps protecting you everywhere else.</p>
+\t\t\t\t<p>A site acting up? Click the AIO icon and hit <strong>Allow</strong> next to the site's name. AIO steps aside on that one site — and keeps protecting you everywhere else.</p>
 \t\t\t</div>
 
 \t\t\t<div class="tour-card">
@@ -107,7 +115,7 @@ TOUR = f"""
 \t\t\t\t\t<div class="mock-toggle"><span class="mock-toggle-label off">THIS.SITE</span><span class="mock-pill off"></span></div>
 \t\t\t\t</div>
 \t\t\t\t<h3>You're always in control</h3>
-\t\t\t\t<p>Flip protection back on with the same button, or pause everything at once with the master switch. Your browsing, your rules.</p>
+\t\t\t\t<p>Changed your mind? The same button switches the site back. The master switch pauses everything at once. Your browsing, your rules.</p>
 \t\t\t</div>
 
 \t\t</div>
