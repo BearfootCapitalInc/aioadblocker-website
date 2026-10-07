@@ -80,7 +80,6 @@ HEX = ('<svg viewBox="0 0 100 100"><polygon points="50,7 88,28 88,72 50,93 12,72
 TOUR = f"""
 <section class="tour">
 \t<div class="container">
-\t\t<div class="tour-title">[ Your 60-second tour ]</div>
 \t\t<div class="tour-grid">
 
 \t\t\t<div class="tour-card">
@@ -95,8 +94,7 @@ TOUR = f"""
 \t\t\t\t<p>Click the AIO icon on any site to watch it work — ads and trackers blocked on that page, plus your all-time count climbing.</p>
 \t\t\t</div>
 
-\t\t\t<div class="tour-card tour-star">
-\t\t\t\t<div class="tour-badge">Most useful tip</div>
+\t\t\t<div class="tour-card">
 \t\t\t\t<div class="tour-num">2</div>
 \t\t\t\t<div class="mock">
 \t\t\t\t\t<div class="mock-head"><span>NODE.7F3C</span><span class="act">[ SYS.ACTIVE ]</span></div>

@@ -1,5 +1,5 @@
 --- success_live.html	2026-10-07 04:16:03.792085885 +0200
-+++ success_v2.html	2026-10-07 04:29:25.638014393 +0200
++++ success_v2.html	2026-10-07 04:30:16.505575973 +0200
 @@ -87,7 +87,56 @@
            .cta-row { flex-direction: column; gap: 14px; }
            .btn-cta { width: 100%; text-align: center; }
@@ -58,7 +58,7 @@
  </head>
  <body>
  
-@@ -187,15 +236,55 @@
+@@ -187,15 +236,53 @@
  		<h1>You're protected. <span class="green">Ads are gone.</span></h1>
  		<p class="lead">All-In-One Adblocker is now active in your browser. Open any site and you'll see the difference immediately.</p>
  
@@ -75,7 +75,6 @@
 +
 +<section class="tour">
 +	<div class="container">
-+		<div class="tour-title">[ Your 60-second tour ]</div>
 +		<div class="tour-grid">
 +
 +			<div class="tour-card">
@@ -90,8 +89,7 @@
 +				<p>Click the AIO icon on any site to watch it work — ads and trackers blocked on that page, plus your all-time count climbing.</p>
 +			</div>
  
-+			<div class="tour-card tour-star">
-+				<div class="tour-badge">Most useful tip</div>
++			<div class="tour-card">
 +				<div class="tour-num">2</div>
 +				<div class="mock">
 +					<div class="mock-head"><span>NODE.7F3C</span><span class="act">[ SYS.ACTIVE ]</span></div>
