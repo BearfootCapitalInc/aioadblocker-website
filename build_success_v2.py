@@ -18,6 +18,13 @@ if n != 1: sys.exit('what-now anchor not found')
 CSS = """
       /* ── 60-second tour (tutorial) ───────────────────────── */
       .tour { padding: 6px 0 70px; position: relative; z-index: 2; }
+      /* status strip + try-it nudge filling the hero→cards gap */
+      .status-strip { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 34px; margin: 6px auto 14px; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-mute); }
+      .status-strip span { display: flex; align-items: center; gap: 8px; }
+      .status-strip .sdot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px rgba(61,220,132,0.6); }
+      .try-line { text-align: center; font-size: 15px; color: var(--text); margin: 0 0 34px; }
+      .try-line a { color: var(--green); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(61,220,132,0.4); }
+      .try-line a:hover { border-bottom-color: var(--green); }
       .tour-title { text-align: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 3px; color: var(--green); text-transform: uppercase; margin-bottom: 26px; }
       .tour-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1140px; margin: 0 auto; }
       /* wider page on big screens (J: stop hugging a narrow column) */
@@ -80,6 +87,12 @@ HEX = ('<svg viewBox="0 0 100 100"><polygon points="50,7 88,28 88,72 50,93 12,72
 TOUR = f"""
 <section class="tour">
 \t<div class="container">
+\t\t<div class="status-strip">
+\t\t\t<span><span class="sdot"></span> 200,000+ ad &amp; tracker domains blocked</span>
+\t\t\t<span><span class="sdot"></span> Malware shield active</span>
+\t\t\t<span><span class="sdot"></span> Free forever</span>
+\t\t</div>
+\t\t<p class="try-line">See for yourself — <a href="https://www.youtube.com" target="_blank" rel="noopener">open YouTube</a> and watch the ads vanish.</p>
 \t\t<div class="tour-grid">
 
 \t\t\t<div class="tour-card">
