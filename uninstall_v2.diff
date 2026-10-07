@@ -1,5 +1,5 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 02:18:36.477492006 +0200
++++ uninstall_v2.html	2026-10-07 02:19:53.057848051 +0200
 @@ -164,7 +164,35 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
@@ -37,6 +37,24 @@
  </head>
  <body>
  
+@@ -198,7 +226,7 @@
+ 				<span class="arrow">→</span>
+ 			</a>
+ 			<button class="link-feedback" onclick="scrollToFeedback()">
+-				No, I meant it — let me tell you why ↓
++				No, I meant it — help us make AIO better ↓
+ 			</button>
+ 		</div>
+ 
+@@ -219,7 +247,7 @@
+ 			<div class="fb-head">
+ 				<div class="fb-eyebrow">// 30 seconds, anonymous</div>
+ 				<h2>What pushed you to uninstall?</h2>
+-				<p>Pick the closest reason — it helps us fix what's broken. Click one, that's it.</p>
++				<p>You can make AIO better — but only if you tell us what went wrong. We can't fix what we don't know about. One click is all it takes.</p>
+ 			</div>
+ 
+ 			<div class="chip-grid" id="chip-grid">
 @@ -246,6 +274,15 @@
  			</script>
  

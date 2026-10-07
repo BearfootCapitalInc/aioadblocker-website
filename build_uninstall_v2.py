@@ -66,6 +66,16 @@ m = re.search(r'(<div class="fb-extra" id="fb-extra">\s*\n)', src)
 if not m: sys.exit('fb-extra anchor not found')
 src = src[:m.end()] + PICKER + src[m.end():]
 
+# ── 2b. Copy (J 2026-10-07): "they can help us make it better — but we
+#    need their feedback" has to be said explicitly.
+src = src.replace(
+    'No, I meant it — let me tell you why ↓',
+    'No, I meant it — help us make AIO better ↓')
+src = src.replace(
+    "Pick the closest reason — it helps us fix what's broken. Click one, that's it.",
+    "You can make AIO better — but only if you tell us what went wrong. "
+    "We can't fix what we don't know about. One click is all it takes.")
+
 # ───────────────────────── 3. JS ─────────────────────────
 JS = r"""
     (() => {
