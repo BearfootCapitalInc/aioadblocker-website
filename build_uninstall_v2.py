@@ -60,7 +60,15 @@ CSS += """
         max-width: 980px;
         margin: 0 auto;
       }
-      .hero h1 { font-size: 36px; }
+      .hero h1 { font-size: 36px; margin-top: 18px; }
+      /* One centered lockup: [small shield] // PROTECTION OFFLINE */
+      .shield-wrap { display: inline-block; vertical-align: middle; margin: 0 12px 0 0; animation: none; }
+      .shield { width: 38px; height: 44px; }
+      .shield-x { width: 17px; height: 17px; font-size: 11px; top: -4px; right: -5px; }
+      .hero-tag { display: inline-block; vertical-align: middle; margin: 0; }
+      .hero-sub { max-width: 560px; text-wrap: balance; margin-bottom: 18px; }
+      /* A little breathing room around the reinstall CTA (not a lot) */
+      .cta-row { margin-top: 22px; gap: 16px; margin-bottom: 6px; }
       /* Feedback = secondary: quieter, flatter panel below */
       .feedback { background: none; padding: 0 0 70px; }
       .feedback .container {
