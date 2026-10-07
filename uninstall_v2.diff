@@ -1,5 +1,5 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 02:45:38.655745749 +0200
++++ uninstall_v2.html	2026-10-07 02:46:31.858318887 +0200
 @@ -164,7 +164,83 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
@@ -100,7 +100,7 @@
  				<div class="fb-eyebrow">// 30 seconds, anonymous</div>
 -				<h2>What pushed you to uninstall?</h2>
 -				<p>Pick the closest reason — it helps us fix what's broken. Click one, that's it.</p>
-+				<p>You can make AIO better — but only if you tell us what went wrong. We can't fix what we don't know about. One click is all it takes.</p>
++				<p>Your feedback is important to us — it's how AIO gets better.</p>
  			</div>
  
  			<div class="chip-grid" id="chip-grid">

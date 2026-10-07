@@ -121,8 +121,7 @@ src = src.replace(
     'No, I meant it — help us make AIO better ↓')
 src = src.replace(
     "Pick the closest reason — it helps us fix what's broken. Click one, that's it.",
-    "You can make AIO better — but only if you tell us what went wrong. "
-    "We can't fix what we don't know about. One click is all it takes.")
+    "Your feedback is important to us — it's how AIO gets better.")
 
 # ── 2c. (J 2026-10-07) Drop the "What pushed you to uninstall?" title;
 #    the feedback pitch sentence becomes the headline itself.
