@@ -28,6 +28,25 @@ CSS = """
       #site-other-input.show { display: block; }
   """
 
+# ── 1b. Compact hero (J 2026-10-07): reasons must be reachable without
+#    scrolling, and the headline had too many colours. Appended last so
+#    it overrides the base rules AND the responsive media blocks.
+CSS += """
+      /* ── v2 compact hero: single accent, feedback above the fold ── */
+      .hero { flex: 0 0 auto; padding: 30px 0 24px; }
+      .shield-wrap { margin-bottom: 12px; }
+      .shield { width: 64px; height: 75px; }
+      .shield-x { width: 24px; height: 24px; font-size: 14px; top: -5px; right: -7px; }
+      .hero-tag { margin-bottom: 14px; }
+      .hero h1 { font-size: 32px; margin-bottom: 10px; letter-spacing: -0.6px; }
+      .hero h1 .green, .hero h1 .warn { color: inherit; }
+      .hero-sub { font-size: 15px; max-width: 640px; margin-bottom: 18px; }
+      .cta-row { gap: 10px; margin-bottom: 0; }
+      .btn-reinstall { padding: 14px 32px; font-size: 15px; }
+      .loss-strip { display: none; }
+      .feedback { padding: 36px 0 50px; }
+  """
+
 i = src.rindex('</style>')
 src = src[:i] + CSS + '\n' + src[i:]
 

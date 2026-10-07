@@ -1,6 +1,6 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 01:28:21.420882142 +0200
-@@ -164,7 +164,21 @@
++++ uninstall_v2.html	2026-10-07 02:18:36.477492006 +0200
+@@ -164,7 +164,35 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
        }
@@ -19,11 +19,25 @@
 +      #site-other-input { display: none; margin: 10px 0 0; }
 +      #site-other-input.show { display: block; }
 +  
++      /* ── v2 compact hero: single accent, feedback above the fold ── */
++      .hero { flex: 0 0 auto; padding: 30px 0 24px; }
++      .shield-wrap { margin-bottom: 12px; }
++      .shield { width: 64px; height: 75px; }
++      .shield-x { width: 24px; height: 24px; font-size: 14px; top: -5px; right: -7px; }
++      .hero-tag { margin-bottom: 14px; }
++      .hero h1 { font-size: 32px; margin-bottom: 10px; letter-spacing: -0.6px; }
++      .hero h1 .green, .hero h1 .warn { color: inherit; }
++      .hero-sub { font-size: 15px; max-width: 640px; margin-bottom: 18px; }
++      .cta-row { gap: 10px; margin-bottom: 0; }
++      .btn-reinstall { padding: 14px 32px; font-size: 15px; }
++      .loss-strip { display: none; }
++      .feedback { padding: 36px 0 50px; }
++  
 +</style>
  </head>
  <body>
  
-@@ -246,6 +260,15 @@
+@@ -246,6 +274,15 @@
  			</script>
  
  			<div class="fb-extra" id="fb-extra">
@@ -39,7 +53,7 @@
  				<textarea id="fb-text" placeholder="Anything else you'd want us to know? (optional — but read by humans)"></textarea>
  				<input id="fb-email" type="email" placeholder="Email if you'd like a reply (optional)">
  				<div class="fb-submit">
-@@ -297,12 +320,43 @@
+@@ -297,12 +334,43 @@
          const CWS_URL = "https:\/\/aioadblocker.com\/rinsorg\/";
          const FEEDBACK_ENDPOINT = '/uninstall/feedback/';
  
@@ -85,7 +99,7 @@
          document.querySelectorAll('#reinstall-top, #reinstall-sticky, #reinstall-thanks').forEach(a => {
              a.href = CWS_URL;
              a.target = '_blank';
-@@ -323,6 +377,60 @@
+@@ -323,6 +391,60 @@
              }
          }, { passive: true });
  
@@ -146,7 +160,7 @@
          let chosenReason = null;
          const chips = document.querySelectorAll('.chip');
          const extra = document.getElementById('fb-extra');
-@@ -333,29 +441,54 @@
+@@ -333,29 +455,54 @@
                  chip.classList.add('selected');
                  chosenReason = chip.dataset.reason;
                  extra.classList.add('show');
