@@ -45,6 +45,21 @@ CSS += """
       .btn-reinstall { padding: 14px 32px; font-size: 15px; }
       .loss-strip { display: none; }
       .feedback { padding: 36px 0 50px; }
+      /* ── v2: dissociate the two jobs of the page — reinstall pitch on
+         the dark page bg, feedback inside its own bordered panel ── */
+      .hero { padding-bottom: 34px; }
+      .feedback { background: none; padding: 8px 0 64px; }
+      .feedback .container {
+        background: linear-gradient(180deg, rgba(20,48,74,0.5) 0%, rgba(13,33,56,0.65) 100%);
+        border: 1px solid var(--border-warn);
+        border-radius: 18px;
+        padding: 38px 44px 42px;
+        box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      }
+      @media (max-width: 640px) {
+        .feedback .container { padding: 26px 16px 30px; border-radius: 14px; }
+      }
+
       /* ── v2: make the input fields clearly visible (were near-invisible
          — page-coloured bg + 15%-opacity border) ── */
       .fb-extra textarea, .fb-extra input {
