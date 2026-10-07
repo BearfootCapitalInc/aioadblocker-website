@@ -45,6 +45,15 @@ CSS += """
       .btn-reinstall { padding: 14px 32px; font-size: 15px; }
       .loss-strip { display: none; }
       .feedback { padding: 36px 0 50px; }
+      /* ── v2 wide screens: stop hugging an 880px column ── */
+      @media (min-width: 1100px) {
+        .container { max-width: 1240px; }
+        .hero h1 { max-width: none; }
+        .hero-sub { max-width: 820px; }
+        .chip-grid { max-width: 1240px; grid-template-columns: repeat(4, 1fr); }
+        .fb-head p { max-width: 640px; }
+        .fb-extra { max-width: 860px; }
+      }
   """
 
 i = src.rindex('</style>')
