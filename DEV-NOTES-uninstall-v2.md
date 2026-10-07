@@ -17,6 +17,24 @@ Note: the live page server-renders the reinstall URL (`/rinsorg/`). The diff
 keeps that markup byte-identical — if it's a template variable on your side,
 nothing to re-wire. Tracking iframe + `localStorage.clear()` untouched.
 
+## Design pass (J, 2026-10-07 night)
+
+On top of the data work, the page was redesigned with J iteratively:
+- Hero: shield graphic + `// PROTECTION OFFLINE` monospace tag replaced by
+  a 76px AIO icon (`/assets/icon128.png`, already on prod) + a dark
+  "● Protection disabled" status pill. Headline all-white (no green/orange
+  spans). Blinking loss-strip removed. Hero no longer stretches to 100vh —
+  hero + all reason chips fit one 1280×1000 viewport.
+- Two clearly separated cards: reinstall = dominant green-topped raised
+  card; feedback = quieter flat panel below.
+- Feedback head: h2 removed; headline is "Your feedback is important to
+  us — it's how AIO gets better." with "No, I meant it — help us make AIO
+  better." directly under it (the hero scroll-link was removed).
+- Hint line above the textarea: "Please provide detailed feedback and hit
+  Send — it really helps."
+- Inputs made clearly visible (lighter bg, 38%-opacity border).
+- Wide screens (≥1100px): one shared 980px column, 4-across chips.
+
 ## What changed (3 spots)
 
 1. **CSS** — `.site-picker` / `.site-chip` block appended at the end of `<style>`.
