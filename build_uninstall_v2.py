@@ -60,13 +60,15 @@ CSS += """
         max-width: 980px;
         margin: 0 auto;
       }
-      .hero h1 { font-size: 36px; margin-top: 0; }
+      /* ── /success/-style hero lockup, uninstall flavour ── */
+      .shield-wrap { display: inline-block; position: relative; margin-bottom: 20px; animation: none; filter: drop-shadow(0 18px 50px rgba(255,122,89,0.30)); }
+      .shield, .shield-wrap:hover .shield { width: 120px; height: 139px; display: block; filter: none; }
+      .shield-x { top: auto; bottom: 4px; right: -12px; width: 50px; height: 50px; background: var(--warn); border: 4px solid #122c47; color: #0a1828; font-size: 28px; font-weight: 800; box-shadow: 0 10px 28px rgba(255,122,89,0.5); }
+      .hero-tag { display: inline-block; padding: 6px 14px; background: rgba(255,122,89,0.12); border: 1px solid var(--warn); color: var(--warn); font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 20px; border-radius: 0; }
+      .hero h1 { font-size: 42px; margin-top: 0; }
+      .hero h1 .green { color: inherit; }
+      .hero h1 .warn { color: var(--warn); }
       .hero-sub { max-width: 560px; text-wrap: balance; margin-bottom: 18px; }
-      /* Clean brand lockup: AIO icon + status pill */
-      .hero-brand { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 24px; }
-      .hero-brand img { width: 76px; height: 76px; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45)); }
-      .status-pill { display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px; background: rgba(10,24,40,0.75); border: 1px solid rgba(125,255,212,0.28); border-radius: 999px; color: #eef7f8; font-size: 16px; font-weight: 600; letter-spacing: 0.2px; box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
-      .status-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5f56; box-shadow: 0 0 10px rgba(255,95,86,0.8); animation: dot-blink 1.6s ease-in-out infinite; }
       /* A little breathing room around the reinstall CTA (not a lot) */
       .cta-row { margin-top: 22px; gap: 16px; margin-bottom: 6px; }
       /* Feedback = secondary: quieter, flatter panel below */
@@ -138,16 +140,12 @@ src = src.replace(
 #    the feedback pitch sentence becomes the headline itself.
 src = re.sub(r'\s*<h2>What pushed you to uninstall\?</h2>', '', src)
 
-# ── 2d0. (J 2026-10-07) Replace the dimmed-shield + monospace tag with a
-#    clean lockup: real AIO icon + modern status pill.
-src = re.sub(r'\s*<div class="shield-wrap"[^>]*>.*?</div>\s*</div>', '', src, count=1, flags=re.S)
-src = re.sub(
-    r'\s*<div class="hero-tag">// PROTECTION OFFLINE</div>',
-    '\n\t\t<div class="hero-brand">\n'
-    '\t\t\t<img src="/assets/icon128.png" alt="AIO Adblocker" width="44" height="44">\n'
-    '\t\t\t<span class="status-pill"><span class="status-dot"></span>Protection disabled</span>\n'
-    '\t\t</div>',
-    src)
+# ── 2d0. (J 2026-10-07) Hero mimics the /success/ page lockup: big bright
+#    shield + badge circle + bracketed eyebrow tag. Markup already matches
+#    (shield-wrap + shield-x + hero-tag) — only the tag text changes here;
+#    the rest is CSS overrides below.
+src = src.replace('<div class="hero-tag">// PROTECTION OFFLINE</div>',
+                  '<div class="hero-tag">[ PROTECTION OFFLINE ]</div>')
 
 # ── 2d. (J 2026-10-07) Move the "No, I meant it" message out of the hero
 #    card and into the feedback head, under the headline.
