@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>You're in — All-In-One Adblocker</title>
+	<link rel="icon" type="image/png" href="/assets/icon128.png">
+	<style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      :root { --bg: #0a1828; --bg2: #14304a; --green: #3ddc84; --cyan: #7fffd4; --blue1: #1E3A6B; --blue2: #2D5AA0; --blue3: #4A8BDF; --text: #d8eef0; --text-mute: #7aa8b5; --border: rgba(125,255,212,0.15); }
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+      .container { max-width: 760px; margin: 0 auto; padding: 0 32px; width: 100%; }
+      .green { color: var(--green); }
+
+      .success-hero { flex: 1; padding: 80px 0 60px; position: relative; overflow: hidden; }
+      .success-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(61,220,132,0.18) 0%, transparent 55%), radial-gradient(ellipse at 50% 100%, rgba(74,139,223,0.12) 0%, transparent 50%); pointer-events: none; }
+      .success-inner { position: relative; z-index: 2; text-align: center; }
+
+      .shield-wrap { position: relative; display: inline-block; margin-bottom: 28px; filter: drop-shadow(0 18px 50px rgba(61,220,132,0.45)); }
+      .shield-wrap svg.shield { width: 130px; height: 150px; display: block; }
+      .shield-check { position: absolute; bottom: 6px; right: -10px; width: 56px; height: 56px; background: var(--green); border: 4px solid var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(61,220,132,0.55); animation: check-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both; }
+      .shield-check svg { width: 28px; height: 28px; }
+      @keyframes check-pop { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+      .eyebrow { display: inline-block; padding: 6px 14px; background: rgba(61,220,132,0.12); border: 1px solid var(--green); color: var(--green); font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 3px; margin-bottom: 22px; text-transform: uppercase; }
+      h1 { font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -1.4px; color: white; margin-bottom: 18px; }
+      .lead { font-size: 19px; color: var(--text); max-width: 560px; margin: 0 auto 40px; line-height: 1.55; }
+
+      /* Floating "pin AIO" callout anchored to the top-right corner, just
+         beneath the browser's puzzle / extensions icon. The arrow points
+         up at the actual toolbar location. */
+      .pin-callout { position: fixed; top: 60px; right: 20px; width: 340px; z-index: 100; background: linear-gradient(180deg, #14304a 0%, #0a1828 100%); border: 1px solid rgba(61,220,132,0.45); border-radius: 14px; padding: 20px 18px 18px; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 40px rgba(61,220,132,0.18); animation: pin-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both; }
+      @keyframes pin-pop { 0% { transform: translateY(-12px) scale(0.92); opacity: 0; } 100% { transform: translateY(0) scale(1); opacity: 1; } }
+      /* Bouncing arrow + the actual puzzle icon, centered above the
+         callout so it visually points up at the browser toolbar without
+         being clipped by the viewport top. */
+      .pin-callout-pointer { position: absolute; top: -50px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 4px; animation: arrow-bounce 1.1s ease-in-out infinite; }
+      @keyframes arrow-bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-6px); } }
+      .pin-callout-target { width: 32px; height: 32px; border-radius: 8px; background: rgba(10,24,40,0.92); border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.45); }
+      .pin-callout-target svg { width: 22px; height: 22px; color: #cfd4d8; }
+      .pin-callout-arrow { color: var(--green); font-size: 0; line-height: 1; filter: drop-shadow(0 -4px 10px rgba(61,220,132,0.55)); }
+      .pin-callout-arrow svg { display: block; width: 22px; height: 18px; }
+      .pin-callout-arrow-label { position: absolute; top: -64px; left: 50%; transform: translateX(-50%); font-family: 'Courier New', monospace; font-size: 10px; color: var(--green); letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
+      .pin-callout-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+      .pin-callout-header-title { color: white; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; flex: 1; }
+      .pin-callout-close { background: transparent; border: none; color: var(--text-mute); font-size: 18px; cursor: pointer; padding: 0 4px; line-height: 1; }
+      .pin-callout-close:hover { color: white; }
+
+      .pin-step { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; }
+      .pin-step + .pin-step { border-top: 1px dashed rgba(125,255,212,0.12); }
+      .pin-step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--green); color: var(--bg); font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+      .pin-step-body { flex: 1; min-width: 0; }
+      .pin-step-title { color: white; font-size: 13.5px; font-weight: 600; display: flex; align-items: center; gap: 6px; line-height: 1.35; }
+      .pin-step-title .glyph { font-size: 16px; line-height: 1; }
+      .pin-step-ext-icon { display: inline-flex; width: 20px; height: 22px; align-items: center; justify-content: center; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(74,139,223,0.35)); }
+      .pin-step-ext-icon svg { width: 100%; height: 100%; display: block; }
+      .pin-step-desc { color: var(--text-mute); font-size: 12px; line-height: 1.5; margin-top: 3px; }
+      .pin-step-desc .green { color: var(--green); font-weight: 600; }
+      .pin-callout-foot { font-family: 'Courier New', monospace; font-size: 10px; color: var(--text-mute); letter-spacing: 1.5px; text-transform: uppercase; text-align: center; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+
+      .what-now { background: rgba(26,52,80,0.4); border: 1px solid var(--border); border-radius: 14px; padding: 26px 32px; margin: 0 auto 40px; text-align: left; max-width: 600px; }
+      .what-now-title { font-family: 'Courier New', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 14px; }
+      .what-now ul { list-style: none; }
+      .what-now li { padding: 9px 0 9px 30px; position: relative; color: var(--text); font-size: 15px; }
+      .what-now li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 800; font-size: 17px; }
+      .what-now li strong { color: white; font-weight: 600; }
+
+      .cta-row { display: flex; gap: 18px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+      .btn-cta { display: inline-block; padding: 16px 32px; background: var(--green); color: var(--bg); border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 15px; letter-spacing: 0.3px; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 6px 22px rgba(61,220,132,0.35); }
+      .btn-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(61,220,132,0.55); }
+      .btn-secondary { color: var(--text-mute); text-decoration: none; font-size: 12px; }
+      .btn-secondary:hover { color: var(--green); }
+
+      footer { padding: 28px 0 32px; border-top: 1px solid var(--border); background: rgba(10,24,40,0.6); text-align: center; font-size: 12px; color: var(--text-mute); }
+
+      @media (max-width: 640px) {
+          .success-hero { padding: 50px 0 40px; }
+          h1 { font-size: 32px; letter-spacing: -0.8px; }
+          .lead { font-size: 16px; }
+          .shield-wrap svg.shield { width: 96px; height: 110px; }
+          .shield-check { width: 42px; height: 42px; right: -6px; }
+          .shield-check svg { width: 22px; height: 22px; }
+          /* The floating callout points at the browser puzzle icon, which
+             doesn't exist on mobile chrome. Hide it there. */
+          .pin-callout { display: none; }
+          .what-now { padding: 22px 22px; }
+          .cta-row { flex-direction: column; gap: 14px; }
+          .btn-cta { width: 100%; text-align: center; }
+      }
+	</style>
+</head>
+<body>
+
+  <script>
+
+      window.addEventListener("DOMContentLoaded", (event) => {
+          var buttons = document.querySelectorAll('a[vento], button[vento]');
+          for (var i = 0; i < buttons.length; i++) {
+              buttons[i].addEventListener('click', function (el) {
+                  el.preventDefault();
+                  var url = el.currentTarget.getAttribute('vento');
+                  window.location.href = url;
+              });
+          }
+      });
+  </script>
+
+
+
+
+<!-- Pin instructions — anchored to top-right where the browser puzzle/extensions icon sits. -->
+<aside class="pin-callout" id="pin-callout" aria-live="polite">
+	<div class="pin-callout-pointer" aria-hidden="true">
+		<div class="pin-callout-arrow">
+			<svg viewBox="0 0 22 18"><path d="M 11,0 L 22,11 L 15,11 L 15,18 L 7,18 L 7,11 L 0,11 Z" fill="currentColor"/></svg>
+		</div>
+		<div class="pin-callout-target">
+			<!-- Chrome extensions puzzle icon — Material "extension" silhouette,
+			     same single-piece shape Chrome uses in the toolbar. -->
+			<svg viewBox="0 0 24 24" fill="currentColor">
+				<path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7s2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/>
+			</svg>
+		</div>
+	</div>
+	<div class="pin-callout-header">
+		<div class="pin-callout-header-title">Pin AIO to your toolbar</div>
+		<button class="pin-callout-close" id="pin-callout-close" aria-label="Dismiss">×</button>
+	</div>
+	<div class="pin-step">
+		<span class="pin-step-num">1</span>
+		<div class="pin-step-body">
+			<div class="pin-step-title"><span class="glyph">🧩</span> Click the puzzle icon above</div>
+			<div class="pin-step-desc">In the top-right of Chrome's toolbar.</div>
+		</div>
+	</div>
+	<div class="pin-step">
+		<span class="pin-step-num">2</span>
+		<div class="pin-step-body">
+			<div class="pin-step-title">
+				<span class="pin-step-ext-icon" aria-hidden="true">
+					<svg viewBox="0 0 100 116">
+						<path d="M 50,4 L 94,20 Q 94,76 50,112 Q 6,76 6,20 Z" fill="#1E3A6B"/>
+						<path d="M 50,14 L 82,26 Q 82,68 50,98 Q 18,68 18,26 Z" fill="#2D5AA0"/>
+						<path d="M 50,24 L 72,32 Q 72,60 50,82 Q 28,60 28,32 Z" fill="#4A8BDF"/>
+						<circle cx="50" cy="49" r="11" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+						<line x1="42" y1="41" x2="58" y2="57" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+					</svg>
+				</span>
+				Find <span style="color:var(--green)">All-In-One Adblocker</span>
+			</div>
+			<div class="pin-step-desc">In the list that opens.</div>
+		</div>
+	</div>
+	<div class="pin-step">
+		<span class="pin-step-num">3</span>
+		<div class="pin-step-body">
+			<div class="pin-step-title"><span class="glyph">📌</span> Click the pushpin</div>
+			<div class="pin-step-desc">Next to AIO — turns it <span class="green">blue</span>. Done.</div>
+		</div>
+	</div>
+</aside>
+
+<script>
+(function(){
+	var c = document.getElementById('pin-callout');
+	var x = document.getElementById('pin-callout-close');
+	if (x && c) x.addEventListener('click', function(){ c.style.display = 'none'; });
+})();
+</script>
+
+<section class="success-hero">
+	<div class="container success-inner">
+		<div class="shield-wrap">
+			<svg class="shield" viewBox="0 0 100 116">
+				<path d="M 50,4 L 94,20 Q 94,76 50,112 Q 6,76 6,20 Z" fill="#1E3A6B"/>
+				<path d="M 50,14 L 82,26 Q 82,68 50,98 Q 18,68 18,26 Z" fill="#2D5AA0"/>
+				<path d="M 50,24 L 72,32 Q 72,60 50,82 Q 28,60 28,32 Z" fill="#4A8BDF"/>
+				<circle cx="50" cy="49" r="11" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+				<line x1="42" y1="41" x2="58" y2="57" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+			</svg>
+			<div class="shield-check">
+				<svg viewBox="0 0 24 24" fill="none" stroke="#0a1828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>
+			</div>
+		</div>
+
+		<div class="eyebrow">[ INSTALL COMPLETE ]</div>
+		<h1>You're protected. <span class="green">Ads are gone.</span></h1>
+		<p class="lead">All-In-One Adblocker is now active in your browser. Open any site and you'll see the difference immediately.</p>
+
+		<div class="what-now">
+			<div class="what-now-title">[ WHAT HAPPENS NOW ]</div>
+			<ul>
+				<li><strong>Ads stop appearing</strong> on YouTube, news sites, and 200,000+ other domains.</li>
+				<li><strong>The malware shield</strong> is checking every site you visit, in the background.</li>
+				<li><strong>Free forever.</strong> No premium tier, no upsell, no catch.</li>
+			</ul>
+		</div>
+
+	</div>
+</section>
+
+<footer>
+	© 2026 All-In-One Adblocker · Made for users, not advertisers.
+</footer>
+</body>
+</html>
