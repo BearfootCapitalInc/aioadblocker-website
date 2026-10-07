@@ -1,6 +1,6 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 02:42:45.615127075 +0200
-@@ -164,7 +164,82 @@
++++ uninstall_v2.html	2026-10-07 02:45:38.655745749 +0200
+@@ -164,7 +164,83 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
        }
@@ -55,7 +55,8 @@
 +        border-radius: 16px;
 +        padding: 32px 44px 38px;
 +      }
-+      .fb-head h2 { font-size: 26px; }
++      /* Feedback pitch is the headline now (h2 removed from markup) */
++      .fb-head p { font-size: 19px; font-weight: 700; color: white; max-width: 700px; line-height: 1.5; }
 +      @media (max-width: 640px) {
 +        .hero-inner { padding: 24px 16px 28px; border-radius: 14px; }
 +        .feedback .container { padding: 24px 16px 28px; border-radius: 14px; }
@@ -84,7 +85,7 @@
  </head>
  <body>
  
-@@ -198,7 +273,7 @@
+@@ -198,7 +274,7 @@
  				<span class="arrow">→</span>
  			</a>
  			<button class="link-feedback" onclick="scrollToFeedback()">
@@ -93,10 +94,11 @@
  			</button>
  		</div>
  
-@@ -219,7 +294,7 @@
+@@ -218,8 +294,7 @@
+ 		<div id="fb-form-wrap">
  			<div class="fb-head">
  				<div class="fb-eyebrow">// 30 seconds, anonymous</div>
- 				<h2>What pushed you to uninstall?</h2>
+-				<h2>What pushed you to uninstall?</h2>
 -				<p>Pick the closest reason — it helps us fix what's broken. Click one, that's it.</p>
 +				<p>You can make AIO better — but only if you tell us what went wrong. We can't fix what we don't know about. One click is all it takes.</p>
  			</div>

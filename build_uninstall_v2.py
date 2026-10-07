@@ -68,7 +68,8 @@ CSS += """
         border-radius: 16px;
         padding: 32px 44px 38px;
       }
-      .fb-head h2 { font-size: 26px; }
+      /* Feedback pitch is the headline now (h2 removed from markup) */
+      .fb-head p { font-size: 19px; font-weight: 700; color: white; max-width: 700px; line-height: 1.5; }
       @media (max-width: 640px) {
         .hero-inner { padding: 24px 16px 28px; border-radius: 14px; }
         .feedback .container { padding: 24px 16px 28px; border-radius: 14px; }
@@ -122,6 +123,10 @@ src = src.replace(
     "Pick the closest reason — it helps us fix what's broken. Click one, that's it.",
     "You can make AIO better — but only if you tell us what went wrong. "
     "We can't fix what we don't know about. One click is all it takes.")
+
+# ── 2c. (J 2026-10-07) Drop the "What pushed you to uninstall?" title;
+#    the feedback pitch sentence becomes the headline itself.
+src = re.sub(r'\s*<h2>What pushed you to uninstall\?</h2>', '', src)
 
 # ───────────────────────── 3. JS ─────────────────────────
 JS = r"""
