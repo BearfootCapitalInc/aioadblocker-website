@@ -225,6 +225,7 @@
       }
       /* Feedback pitch is the headline now (h2 removed from markup) */
       .fb-head p { font-size: 19px; font-weight: 700; color: white; max-width: 700px; line-height: 1.5; }
+      .fb-head p.fb-sub { font-size: 14px; font-weight: 500; color: var(--text-mute); margin-top: 6px; }
       @media (max-width: 640px) {
         .hero-inner { padding: 24px 16px 28px; border-radius: 14px; }
         .feedback .container { padding: 24px 16px 28px; border-radius: 14px; }
@@ -282,9 +283,6 @@
 				Reinstall AIO Adblocker
 				<span class="arrow">→</span>
 			</a>
-			<button class="link-feedback" onclick="scrollToFeedback()">
-				No, I meant it — help us make AIO better ↓
-			</button>
 		</div>
 
 		<div class="loss-strip" aria-hidden="true">
@@ -304,6 +302,7 @@
 			<div class="fb-head">
 				<div class="fb-eyebrow">// 30 seconds, anonymous</div>
 				<p>Your feedback is important to us — it's how AIO gets better.</p>
+				<p class="fb-sub">No, I meant it — help us make AIO better.</p>
 			</div>
 
 			<div class="chip-grid" id="chip-grid">

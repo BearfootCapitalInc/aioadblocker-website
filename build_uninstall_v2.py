@@ -79,6 +79,7 @@ CSS += """
       }
       /* Feedback pitch is the headline now (h2 removed from markup) */
       .fb-head p { font-size: 19px; font-weight: 700; color: white; max-width: 700px; line-height: 1.5; }
+      .fb-head p.fb-sub { font-size: 14px; font-weight: 500; color: var(--text-mute); margin-top: 6px; }
       @media (max-width: 640px) {
         .hero-inner { padding: 24px 16px 28px; border-radius: 14px; }
         .feedback .container { padding: 24px 16px 28px; border-radius: 14px; }
@@ -136,6 +137,14 @@ src = src.replace(
 # ── 2c. (J 2026-10-07) Drop the "What pushed you to uninstall?" title;
 #    the feedback pitch sentence becomes the headline itself.
 src = re.sub(r'\s*<h2>What pushed you to uninstall\?</h2>', '', src)
+
+# ── 2d. (J 2026-10-07) Move the "No, I meant it" message out of the hero
+#    card and into the feedback head, under the headline.
+src = re.sub(r'\s*<button class="link-feedback"[^>]*>.*?</button>', '', src, flags=re.S)
+src = src.replace(
+    "Your feedback is important to us — it's how AIO gets better.</p>",
+    "Your feedback is important to us — it's how AIO gets better.</p>\n"
+    '\t\t\t\t<p class="fb-sub">No, I meant it — help us make AIO better.</p>')
 
 # ───────────────────────── 3. JS ─────────────────────────
 JS = r"""

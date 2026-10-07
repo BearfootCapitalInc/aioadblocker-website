@@ -1,6 +1,6 @@
 --- uninstall_live.html	2026-10-06 14:28:33.030878958 +0200
-+++ uninstall_v2.html	2026-10-07 02:52:53.870233495 +0200
-@@ -164,7 +164,92 @@
++++ uninstall_v2.html	2026-10-07 02:55:46.906827941 +0200
+@@ -164,7 +164,93 @@
            #sticky-cta .sub { display: none; }
            #sticky-cta .btn-reinstall { padding: 10px 16px; font-size: 12px; width: auto; }
        }
@@ -66,6 +66,7 @@
 +      }
 +      /* Feedback pitch is the headline now (h2 removed from markup) */
 +      .fb-head p { font-size: 19px; font-weight: 700; color: white; max-width: 700px; line-height: 1.5; }
++      .fb-head p.fb-sub { font-size: 14px; font-weight: 500; color: var(--text-mute); margin-top: 6px; }
 +      @media (max-width: 640px) {
 +        .hero-inner { padding: 24px 16px 28px; border-radius: 14px; }
 +        .feedback .container { padding: 24px 16px 28px; border-radius: 14px; }
@@ -94,26 +95,28 @@
  </head>
  <body>
  
-@@ -198,7 +283,7 @@
+@@ -197,9 +283,6 @@
+ 				Reinstall AIO Adblocker
  				<span class="arrow">→</span>
  			</a>
- 			<button class="link-feedback" onclick="scrollToFeedback()">
+-			<button class="link-feedback" onclick="scrollToFeedback()">
 -				No, I meant it — let me tell you why ↓
-+				No, I meant it — help us make AIO better ↓
- 			</button>
+-			</button>
  		</div>
  
-@@ -218,8 +303,7 @@
+ 		<div class="loss-strip" aria-hidden="true">
+@@ -218,8 +301,8 @@
  		<div id="fb-form-wrap">
  			<div class="fb-head">
  				<div class="fb-eyebrow">// 30 seconds, anonymous</div>
 -				<h2>What pushed you to uninstall?</h2>
 -				<p>Pick the closest reason — it helps us fix what's broken. Click one, that's it.</p>
 +				<p>Your feedback is important to us — it's how AIO gets better.</p>
++				<p class="fb-sub">No, I meant it — help us make AIO better.</p>
  			</div>
  
  			<div class="chip-grid" id="chip-grid">
-@@ -246,6 +330,16 @@
+@@ -246,6 +329,16 @@
  			</script>
  
  			<div class="fb-extra" id="fb-extra">
@@ -130,7 +133,7 @@
  				<textarea id="fb-text" placeholder="Anything else you'd want us to know? (optional — but read by humans)"></textarea>
  				<input id="fb-email" type="email" placeholder="Email if you'd like a reply (optional)">
  				<div class="fb-submit">
-@@ -297,12 +391,43 @@
+@@ -297,12 +390,43 @@
          const CWS_URL = "https:\/\/aioadblocker.com\/rinsorg\/";
          const FEEDBACK_ENDPOINT = '/uninstall/feedback/';
  
@@ -176,7 +179,7 @@
          document.querySelectorAll('#reinstall-top, #reinstall-sticky, #reinstall-thanks').forEach(a => {
              a.href = CWS_URL;
              a.target = '_blank';
-@@ -323,6 +448,60 @@
+@@ -323,6 +447,60 @@
              }
          }, { passive: true });
  
@@ -237,7 +240,7 @@
          let chosenReason = null;
          const chips = document.querySelectorAll('.chip');
          const extra = document.getElementById('fb-extra');
-@@ -333,29 +512,54 @@
+@@ -333,29 +511,54 @@
                  chip.classList.add('selected');
                  chosenReason = chip.dataset.reason;
                  extra.classList.add('show');
