@@ -1,0 +1,29 @@
+--- index_live.html	2026-10-12 08:53:46.624937745 +0200
++++ index_v2.html	2026-10-12 08:54:09.751709089 +0200
+@@ -439,7 +439,7 @@
+ 			<div class="hero-tag">[ THE ONLY ADBLOCK YOU'LL EVER NEED ]</div>
+ 			<h1>Why pick one adblocker when you can have them <span class="green">all?</span></h1>
+ 			<p class="lead">All-In-One Adblocker stops ads on YouTube, Facebook, news sites, and everywhere else you browse.</p>
+-			<p class="lead-2">Free forever. No pop-ups. No tracking. No data collected about you. Install in ten seconds and get your internet back.</p>
++			<p class="lead-2">Free forever. No pop-ups. No selling your data. No profiling. Install in ten seconds and get your internet back.</p>
+ 			<div class="hero-cta-row">
+ 				<a class="btn-cta btn-cta-big btn-cta-pulse" href="#" vento="https://chrome.google.com/webstore/detail/okockappikfndbdfphjklenhfpdlgkgi">Add to Chrome — Free<span class="arrow">→</span></a>
+ 				<a class="btn-secondary" href="#what">See what's blocked →</a>
+@@ -676,7 +676,7 @@
+ 				<div class="prose">
+ 					<p class="lead">A lot of "free" adblockers aren't really free. You're paying with your data.</p>
+ 					<p>It's the oldest trick in the book. The extension is free to download, but it quietly sends information back to its makers — what sites you visit, how often you visit them, when you open the popup, what you click on. They call it "anonymous usage data." It still leaves your computer. It still lives in their databases. It can still be sold.</p>
+-					<p><strong>AIO doesn't do any of that.</strong> We don't read what you browse. We don't log the pages you visit. We don't track what you click. We don't ask for your email. We don't build a profile of who you are. The extension lives on your computer and stays there.</p>
++					<p><strong>AIO doesn't do any of that.</strong> We never see full addresses, page content, searches, or what you click. We don't ask for your email. We don't build a profile of who you are. The only thing that ever leaves your computer is anonymous, domain-level diagnostics that help us fix broken sites — never sold, never shared with anyone.</p>
+ 					<p><a href="/privacy" style="color:var(--green); font-weight: 600;">Read the full privacy policy →</a></p>
+ 				</div>
+ 			</div>
+@@ -843,7 +843,7 @@
+ 				<td><span class="check">✓</span></td>
+ 			</tr>
+ 			<tr>
+-				<td>Zero data collected about you</td>
++				<td>Never sells or shares your data</td>
+ 				<td class="aio-col"><span class="check-aio">✓</span></td>
+ 				<td><span class="check">✓</span></td>
+ 				<td><span class="check">✓</span></td>
