@@ -1,0 +1,54 @@
+--- privacy_live.html	2026-10-12 08:47:21.937957267 +0200
++++ privacy_v2.html	2026-10-12 08:48:07.371455753 +0200
+@@ -38,7 +38,7 @@
+ <div class="container">
+ 	<!-- Privacy Policy Content (raw fragment, shared by _privacy.php and the _index3 install gate) -->
+ <h1>Privacy Policy — All-In-One Adblocker (AIO)</h1>
+-	<p><strong>Last Updated:</strong> May 18, 2026</p>
++	<p><strong>Last Updated:</strong> October 12, 2026</p>
+ 	<p>This Privacy Policy ("Policy") explains how All-In-One Adblocker (the "Extension", "we", "our", "us") collects, uses, discloses, and safeguards information when you (the "User", "you", "your") install or use our browser extension and visit our associated website at https://aioadblocker.com (collectively, the "Services").</p>
+ 	<p>By installing or using the Extension, you acknowledge that you have read, understood, and agree to the terms of this Policy. If you do not agree, you must not install or use the Extension.</p>
+ 	<p>This Policy is provided pursuant to the European Union General Data Protection Regulation (the "GDPR"), the California Consumer Privacy Act, as amended by the California Privacy Rights Act (collectively, the "CCPA/CPRA"), the UK Data Protection Act 2018, and other applicable data protection legislation.</p>
+@@ -57,6 +57,7 @@
+ 		<li>We do <strong>not</strong> sell your Personal Information.</li>
+ 		<li>If you voluntarily contact us (e.g. by emailing support), we process the information you choose to share for the purpose of responding to you.</li>
+ 	</ul>
++	<p><strong>At a glance:</strong> We collect: an anonymous Installation ID, extension version, browser and OS type, language, and domain-level diagnostics (domain names only — never full URLs, page content, or anything you type). Why: debugging, site-compatibility fixes, and future-proofing our filters — nothing else. Storage: secured servers; diagnostic data kept for a maximum of twelve (12) months. Sharing and sales: none — never sold, never shared with advertisers or data brokers.</p>
+ 	<p>The remainder of this Policy provides the legal detail underlying the summary above.</p>
+ 
+ 	<h2>3. Information We Collect</h2>
+@@ -68,7 +69,8 @@
+ 		<li><strong>Browser type and version</strong> — for compatibility checks and aggregate analytics.</li>
+ 		<li><strong>Operating system type</strong> — for compatibility checks and aggregate analytics.</li>
+ 		<li><strong>Preferred language</strong> — the locale string reported by your browser.</li>
+-		<li><strong>Aggregate blocking statistics</strong> — the number of advertisements, trackers, or network requests blocked. These counts are aggregated and are not associated with the specific sites, URLs, or content involved.</li>
++		<li><strong>Blocking statistics</strong> — counts of blocked advertisements, trackers, and network requests, together with the domain name of the page on which the blocking occurred (strictly the domain name only, e.g. example.com — never URL paths, full addresses, or page content). Collected exclusively to debug our filters and future-proof them against changing ad-delivery techniques.</li>
++		<li><strong>Domains present at installation and uninstallation</strong> — at those two moments we record the domain names of the tabs open in your browser and of recently adjusted site preferences (strictly domain names only — never URL paths or full addresses). Used exclusively to debug site-compatibility problems and to understand uninstall feedback.</li>
+ 	</ul>
+ 	<h3>3.2 Information You Voluntarily Provide</h3>
+ 	<p>If you contact us (for example, through our support email, contact form, or feedback channels), we collect the information you choose to provide, which may include:</p>
+@@ -84,7 +86,7 @@
+ 	<h3>3.4 What We Do NOT Collect</h3>
+ 	<p>For the avoidance of doubt, the Extension does <strong>not</strong> collect, transmit, or store:</p>
+ 	<ul>
+-		<li>The specific URLs of pages you visit;</li>
++		<li>The full URLs of pages you visit (we only ever process domain names, as described in Section 3.1);</li>
+ 		<li>The content of pages you load;</li>
+ 		<li>The text of forms you fill out;</li>
+ 		<li>The advertisements you view or interact with;</li>
+@@ -97,6 +99,7 @@
+ 	<ul>
+ 		<li><strong>To Provide the Extension</strong> — to operate the Extension's core ad-blocking and content-filtering functionality on your device.</li>
+ 		<li><strong>To Maintain and Improve the Extension</strong> — to debug errors, analyze aggregate usage trends, and improve performance, stability, and security.</li>
++		<li><strong>To Debug and Future-Proof the Extension</strong> — domain-level diagnostics described in Section 3.1 are used exclusively to identify and fix websites where the Extension malfunctions or under-blocks, and to adapt our filters to evolving advertising infrastructure. They are never used for profiling, advertising, or any other purpose.</li>
+ 		<li><strong>To Provide Support</strong> — to respond to your inquiries, feedback, or support requests.</li>
+ 		<li><strong>To Ensure Security</strong> — to detect and prevent fraud, abuse, security vulnerabilities, and other harmful activity directed at the Extension or its users.</li>
+ 		<li><strong>To Comply with Legal Obligations</strong> — to comply with applicable laws, regulations, court orders, and lawful requests from public authorities.</li>
+@@ -140,6 +143,7 @@
+ 	<p>We retain information only for as long as necessary to fulfill the purposes described in this Policy or as required by applicable law. Specific retention periods include:</p>
+ 	<ul>
+ 		<li><strong>Installation ID and aggregate Non-Personal statistics:</strong> retained for as long as the installation is active.</li>
++		<li><strong>Domain-level diagnostic data</strong> (blocking statistics and installation/uninstallation domain snapshots): retained for up to twelve (12) months from collection, after which it is deleted or irreversibly aggregated.</li>
+ 		<li><strong>Website server logs:</strong> IP addresses anonymized within ninety (90) days.</li>
+ 		<li><strong>Support correspondence:</strong> retained for the duration reasonably necessary to address your inquiry and to maintain a record of resolved issues, and thereafter for legitimate business or legal purposes.</li>
+ 	</ul>
